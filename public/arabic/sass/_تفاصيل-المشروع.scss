@@ -1,0 +1,95 @@
+body{
+    background-color: white;
+}
+.unit-project-details{
+    margin-bottom: 0px;
+}
+
+.project-details{
+    .available-unites{
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        img{
+            margin-left: 10px !important;
+        }
+    }
+    .project{
+        .unit-img{
+            width: 50%;
+            @media only screen and (max-width: 768px) {
+                width: 100%;
+               }
+             @media only screen and (min-width:768px) and (max-width:992px){
+                width: 100%;
+               }
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .unit-details{
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            @media only screen and (max-width: 768px) {
+                width: 100%;
+               }
+             @media only screen and (min-width:768px) and (max-width:992px){
+                width: 100%;
+               }
+            button{
+                width: 50%;
+            }
+        }
+    }
+}
+.blueprint{
+     background: #F6F6F6;
+     padding: 40px 0px;
+    .blueprint-header{
+        display: flex;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 15px;
+        img{
+            margin-left: 10px;
+            width: 20px;
+        }
+        h6{
+            margin-bottom: 0px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+    }
+    .single-item-slider{
+        width: 97%;
+        position: relative;
+        div{
+            img{
+                height: 300px;
+                width: 300px;
+                border-radius: 5px;
+            }
+        }
+    }
+    .next-arrow{
+        position: absolute;
+        left:0px;
+        top: 50%;
+        i{
+            color: white;
+            background-color: #B78457;
+            border-radius: 50%;
+            height: 40px;
+            width: 40px;
+            line-height: 40px;
+            font-size: 25px;
+            text-align: center;
+        }
+    }
+    .dots{
+        font-size: 40px;
+    }
+}

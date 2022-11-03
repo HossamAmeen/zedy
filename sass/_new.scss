@@ -1,0 +1,62 @@
+.new-secial-projects{
+    .unit-name{
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding-right: 25px;
+        font-weight: bold;
+        a{
+            color: black;
+            i{
+                margin-right: 10px;
+            }
+        }
+        span{}
+    }
+    .related-news{
+        h5{
+            background-color: #F6F6F6;
+            text-align: center;
+            padding: 20px 0px;
+            border-radius: 10px;
+        }
+    }
+    .new-project-component{
+        border-right: 1px solid rgb(190, 187, 187);
+        padding-right: 25px;
+        @media only screen and (max-width: 768px) {
+            border-right: none;
+            padding-right: 0px;  
+            border-bottom: 1px solid rgb(190, 187, 187);
+            padding-bottom: 25px;
+          }
+        @media only screen and (min-width:768px) and (max-width:992px){
+            border-right: none;
+            padding-right: 0px;  
+            border-bottom: 1px solid rgb(190, 187, 187);
+            padding-bottom: 25px;
+          }
+        .project-img{
+            margin-bottom: 30px !important;
+            height: 700px !important;
+            img{
+                height: 700px !important;
+            }
+        }
+        .project-details{
+            padding: 30px !important;
+            h6{
+                font-size: 30px !important;
+            }
+            span{
+                font-size: 20px !important;
+                padding: 10px 0px !important;
+            }
+            p{
+                color: black !important;
+            }
+        }
+    }
+}
+
