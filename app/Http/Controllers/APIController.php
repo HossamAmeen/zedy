@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Http\Controllers\APIResponseTrait;
-use App\Models\{Configration, Service,Client,Field, Employee, ClientReview, Media};
+use App\Models\{Configration, Service,Client,Field, Employee, ClientReview, Media, Job};
 use App\Models\Article;
 use App\Models\Video;
 use Illuminate\Http\Request;
@@ -17,7 +17,9 @@ class APIController extends Controller
     }
     public function services($id=null)
     {
-        $items = Service::all();
+        $items = Service::orderBy('item_order', 'DESC')->get();
+        if(request('limit'))
+            $items = $items->take(request('limit'));
         if(isset($id))
         {
             $items = Service::find($id);
@@ -83,6 +85,16 @@ class APIController extends Controller
         return $this->APIResponse($items, null, 200);
 
     }
+    public function jobs($id=null)
+    {
+        $items = Job::get();
+        if(isset($id))
+        {
+            $items = Job::find($id);
+        }
+        
+        return $this->APIResponse($items, null, 200);
+    }
     public function contacts(Request $request)  
     {
         
@@ -107,38 +119,6 @@ class APIController extends Controller
     }
 
 
-    function contactFormValidation()
-    {
 
-
-        return array(
-            'name' => 'required|regex:/^[\pL\s\d\-]+$/u||max:99',
-
-            'email' => 'required|email',
-
-            'text' => 'required|regex:/^[\pL\s\-]+$/u||max:99',
-
-        );
-    }
-
-    function contactMessageValidation()
-    {
-        return array(
-            'name.required' => 'هذا الحقل (الاسم) مطلوب ',
-            'name.*' => 'هذا الحقل (الاسم) يجب يحتوي ع حروف وارقام فقط',
-
-            'text.required' => 'هذا الحقل (الرساله) مطلوب ',
-            'text.*' => 'هذا الحقل (الرساله) يجب يحتوي ع حروف وارقام فقط',
-
-            'email.required' => 'هذا الحقل (البريد) مطلوب ',
-            'email.*' => 'هذا الحقل (البريد)يجب ان يكون بريد صحيح',
-
-            'phone.required' => 'هذا الحقل (التلفون) مطلوب ',
-            'phone.min' => 'هذا الحقل (التلفون) يجب الا يقل عن 11 رقم ',
-            'phone.*' => 'هذا الحقل (التلفون) يجب يحتوي ع ارقام فقط',
-
-
-        );
-    }
 
 }

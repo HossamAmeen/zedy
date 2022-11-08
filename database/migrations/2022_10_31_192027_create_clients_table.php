@@ -15,11 +15,12 @@ class CreateClientsTable extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('item_order')->unsigned()->nullable();
             $table->string("name")->nullable();
             $table->string("ar_name");
             $table->text("description")->nullable();
             $table->text("ar_description");
-            $table->string('image')->nullable()->default('arabic/img/news.png');
+            $table->string('image')->nullable()->default('uploads/clients/mac.svg');
             $table->bigInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->softDeletes();

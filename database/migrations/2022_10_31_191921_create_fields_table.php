@@ -15,9 +15,10 @@ class CreateFieldsTable extends Migration
     {
         Schema::create('fields', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('item_order')->unsigned()->nullable();
             $table->string("name")->nullable();
             $table->string("ar_name");
-            $table->string('image')->nullable()->default('arabic/img/news.png');
+            $table->string('image')->nullable()->default('uploads/employees/field.svg');
             $table->bigInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->softDeletes();

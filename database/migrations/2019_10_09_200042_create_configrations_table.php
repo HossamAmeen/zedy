@@ -36,6 +36,8 @@ class CreateConfigrationsTable extends Migration
             $table->string('address')->nullable();
             $table->string('ar_address')->nullable();
             
+            $table->string('job_form_link')->nullable();
+
             $table->string('email')->nullable();
             # social media links
             $table->string('youtube')->nullable();

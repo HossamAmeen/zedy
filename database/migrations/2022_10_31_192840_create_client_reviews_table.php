@@ -15,11 +15,12 @@ class CreateClientReviewsTable extends Migration
     {
         Schema::create('client_reviews', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('item_order')->unsigned()->nullable();
             $table->string("name")->nullable();
             $table->string("ar_name");
             $table->text("description")->nullable();
             $table->text("ar_description");
-            $table->string('image')->nullable()->default('arabic/img/news.png');
+            $table->string('image')->nullable()->default('uploads\clientreviews\review.png');
 
             $table->bigInteger('field_id')->unsigned()->nullable();
             $table->foreign('field_id')->references('id')->on('fields')->onDelete('cascade');

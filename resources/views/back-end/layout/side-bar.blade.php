@@ -59,27 +59,33 @@
             </a>
 
         </li>
-        <li class="{{is_active('news')}}">
-            <a href="{{route('news.index')}}"  class="{{is_active('news')}}">
-                    <i class="far fa-newspaper"></i><span>الأخبار</span>
+        <li class="{{is_active('services')}}">
+            <a href="{{route('services.index')}}"  class="{{is_active('services')}}">
+                    <i class="far fa-newspaper"></i><span>الخدمات</span>
             </a>
 
         </li>
-        <li class="{{is_active('projects')}}">
-            <a href="{{route('projects.index')}}"  class="{{is_active('projects')}}">
-                    <i class="fa fa-image"></i><span>المشاريع</span>
+        <li class="{{is_active('fields')}}">
+            <a href="{{route('fields.index')}}"  class="{{is_active('fields')}}">
+                    <i class="fa fa-image"></i><span>المجالات</span>
             </a>
 
         </li>
-        <li class="{{is_active('units')}}">
-            <a href="{{route('units.index')}}"  class="{{is_active('units')}}">
-                    <i class="fa fa-image"></i><span>الوحدات</span>
+        <li class="{{is_active('clients')}}">
+            <a href="{{route('clients.index')}}"  class="{{is_active('clients')}}">
+                    <i class="fa fa-image"></i><span>العملاء</span>
             </a>
 
         </li>
-        <li class="{{is_active('contactuses')}}">
-            <a href="{{route('contactuses.index')}}"  class="{{is_active('contactuses')}}">
-                    <i class="fa fa-question"></i><span> تواصل معانا</span><span class="badge badge-red contact_count" ></span>
+        <li class="{{is_active('employees')}}">
+            <a href="{{route('employees.index')}}"  class="{{is_active('employees')}}">
+                    <i class="fa fa-question"></i><span> الموظفين</span><span class="badge badge-red contact_count" ></span>
+            </a>
+
+        </li>
+        <li class="{{is_active('clientreviews')}}">
+            <a href="{{route('clientreviews.index')}}"  class="{{is_active('clientreviews')}}">
+                    <i class="fa fa-question"></i><span> اراء العملاء</span><span class="badge badge-red contact_count" ></span>
             </a>
 
         </li>

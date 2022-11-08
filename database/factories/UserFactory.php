@@ -47,6 +47,7 @@ $factory->define(App\Models\Configration::class, function (Faker $faker) {
         "location"=> "", 
         'phone' => "01010079795",
         'phone2' => "01010079795",
+        'job_form_link' => "https://www.google.com/forms/about/",
         'user_id' =>1 ,
     ];
 });
@@ -57,6 +58,7 @@ $factory->define(App\Models\Service::class, function (Faker $faker) {
         'ar_name' => $faker->name . "عربي",
         'description' => $faker->text,
         'ar_description' => $faker->text."عربي",
+        "item_order" => 1,
         "user_id" => 1
     ];
 });
@@ -67,6 +69,7 @@ $factory->define(App\Models\Client::class, function (Faker $faker) {
         'ar_name' => $faker->name . "عربي",
         'description' => $faker->text,
         'ar_description' => $faker->text."عربي",
+        "item_order" => 1,
         "user_id" => 1
     ];
 });
@@ -77,6 +80,7 @@ $factory->define(App\Models\ClientReview::class, function (Faker $faker) {
         'ar_name' => $faker->name . "عربي",
         'description' => $faker->text,
         'ar_description' => $faker->text."عربي",
+        "item_order" => 1,
         "user_id" => 1
     ];
 });
@@ -85,6 +89,7 @@ $factory->define(App\Models\Employee::class, function (Faker $faker) {
     return [
         'name'=> $faker->name ,
         'ar_name' => $faker->name . "عربي",
+        "item_order" => 1,
         "user_id" => 1
     ];
 });
@@ -93,12 +98,25 @@ $factory->define(App\Models\Field::class, function (Faker $faker) {
     return [
         'name'=> $faker->name ,
         'ar_name' => $faker->name . "عربي",
+        "item_order" => 1,
         "user_id" => 1
     ];
 });
 $factory->define(App\Models\Gallery::class, function (Faker $faker) {
     return [
+        'path'=>" ",
+        "item_order" => 1,
         'user_id' =>1 ,
-        'path'=>" "
+        
+    ];
+});
+$factory->define(App\Models\Job::class, function (Faker $faker) {
+
+    return [
+        "item_order" => 1,
+        'name'=> $faker->name ,
+        'ar_name'=> $faker->name. "عربي" ,
+        'type' => $faker->randomElement(['male', 'female']),
+        "user_id" => 1
     ];
 });
