@@ -48,6 +48,8 @@ $factory->define(App\Models\Configration::class, function (Faker $faker) {
         'phone' => "01010079795",
         'phone2' => "01010079795",
         'job_form_link' => "https://www.google.com/forms/about/",
+        'training_course_count'=>30,
+        'trainee_count'=> 100,
         'user_id' =>1 ,
     ];
 });

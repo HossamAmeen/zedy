@@ -12,8 +12,12 @@ class APIController extends Controller
     use APIResponseTrait;
     public function configrations()
     {
-        $items = Configration::find(1);
-        return $this->APIResponse($items, null, 200);
+        $item = Configration::find(1);
+        $item->{"clients_count"} = Client::get()->count();
+        $item->{"team_count"} = Employee::get()->count();
+        $item->{"videos_count"} = Media::where('type', 'video')->get()->count();
+        $item->{"fields_count"} = Field::get()->count();
+        return $this->APIResponse($item, null, 200);
     }
     public function services($id=null)
     {
