@@ -18,7 +18,7 @@ class CreateFieldsTable extends Migration
             $table->integer('item_order')->unsigned()->nullable();
             $table->string("name")->nullable();
             $table->string("ar_name");
-            $table->string('image')->nullable()->default('uploads/employees/field.svg');
+            $table->string('image')->nullable()->default('uploads/fields/field.svg');
             $table->bigInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->softDeletes();

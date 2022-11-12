@@ -14,10 +14,11 @@ Route::prefix('admin')->group(function(){
         Route::resource('configrations', 'ConfigrationController');
         Route::resource('users', 'UserController');      
         Route::resource('services', 'ServiceController');
-        Route::resource('clients', 'ProjectController');
-        Route::resource('fields', 'ProjectController');
-        Route::resource('employees', 'UnitController');
+        Route::resource('clients', 'ClientController');
+        Route::resource('fields', 'FieldController');
+        Route::resource('employees', 'EmployeeController');
         Route::resource('clientreviews', 'ClientReviewController');
+        Route::resource('jobs', 'JobController'); 
         Route::resource('images', 'VideoController'); 
         Route::resource('videos', 'VideoController'); 
         Route::resource('contactuses', 'ContackUsController'); 

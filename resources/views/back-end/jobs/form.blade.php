@@ -25,19 +25,18 @@
   </div>
 </div>
 
-
-@php $input = "image"; @endphp
+@php $input = "type[]"; @endphp
 <div class="form-group">
-  <label class="col-md-2 control-label">الصورة</label>
-  <div class="col-md-10 ls-group-input">
-    <input name="{{ $input }}" id="file-3" type="file" multiple="true">
-  </div>
-  @error($input)
-  <div class="alert alert-danger" role="alert" style="text-align: center">
-    <strong>{{ $message }}</strong>
-  </div>
-  @enderror
-  <span style="margin-right: 15%;color:red;font-size:15px">يفضل رفع الصوره 400 * 400 </span>
+    <label class="col-lg-2 control-label"> نوع</label>
+    <div class="col-lg-10">
+        <select name="{{ $input }}" class="form-control" multiple>
+          <option value="ذكر" @if(isset($row) && str_contains($row->type , 'ذكر')) selected @endif
+            >ذكر</option>
+          <option value="انثي" @if(isset($row) && str_contains($row->type , 'انثي')) selected @endif
+              >انثي</option>
+
+        </select>
+    </div>
 </div>
 
 @php $input = "item_order"; @endphp
@@ -53,30 +52,3 @@
     @enderror
   </div>
 </div>
-
-
-<label class="col-md-2 control-label">الوصف بالعربي</label>
-@php $input = "ar_description"; @endphp
-<div class="panel-body no-padding">
-  <textarea class="summernote" style="margin-right: 25%" name="{{ $input }}" id="demo" rows="10" cols="100">
-                    {{ isset($row) ? $row->{$input} : '' }}
-   </textarea>
-</div><br>
-@error($input)
-<div class="alert alert-danger" role="alert" style="text-align: center">
-  <strong>{{ $message }}</strong>
-</div>
-@enderror
-
-<label class="col-md-2 control-label">الوصف بالانجلزي</label>
-@php $input = "description"; @endphp
-<div class="panel-body no-padding">
-  <textarea class="summernote" style="margin-right: 25%" name="{{ $input }}" id="demo" rows="10" cols="100">
-                    {{ isset($row) ? $row->{$input} : '' }}
-   </textarea>
-</div><br>
-@error($input)
-<div class="alert alert-danger" role="alert" style="text-align: center">
-  <strong>{{ $message }}</strong>
-</div>
-@enderror

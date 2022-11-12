@@ -1,26 +1,18 @@
 <?php
 
 namespace App\Http\Controllers\BackEnd;
-use Auth;
-use Illuminate\Support\Facades\Validator;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\{News,Project};
-class NewsController extends BackEndController
+use Auth;
+class EmployeeController extends BackEndController
 {
-    public function __construct(News $model)
+    public function __construct(Employee $model)
     {
-        parent::__construct($model, 'item_order', 'desc');
+        parent::__construct($model);
     }
     public function store(Request $request){
-        $validator = Validator::make($request->all(),
-        [
-            'date'=>"required",
-            'ar_description' => 'required'
-        ]);
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
+       
         $requestArray = $request->all();
         if($request->hasFile('image'))
         { 
@@ -29,21 +21,12 @@ class NewsController extends BackEndController
           $requestArray['image'] =  $fileName;
         }
         $requestArray['user_id'] = Auth::user()->id;
-
         $this->model->create($requestArray);
         session()->flash('action', 'تم الاضافه بنجاح');
         return redirect()->route($this->getClassNameFromModel().'.index');
     }
 
     public function update($id , Request $request){
-        $validator = Validator::make($request->all(),
-        [
-            'date'=>"required",
-            'ar_description' => 'required'
-        ]);
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
         $requestArray = $request->all();
         if($request->hasFile('image'))
         {
@@ -51,16 +34,10 @@ class NewsController extends BackEndController
           if(isset($requestArray['image']) )
           $requestArray['image'] =  $fileName;
         }
-       
         $row = $this->model->FindOrFail($id);        
         $requestArray['user_id'] = Auth::user()->id;
         $row->update($requestArray);
         session()->flash('action', 'تم التحديث بنجاح');
         return redirect()->route($this->getClassNameFromModel().'.index');
-    }
-    protected function append($row)
-    {
-       $data['projects'] =  Project::orderBy('item_order', 'DESC')->get();
-        return  $data;
     }
 }

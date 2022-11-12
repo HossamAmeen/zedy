@@ -20,7 +20,7 @@ class CreateClientReviewsTable extends Migration
             $table->string("ar_name");
             $table->text("description")->nullable();
             $table->text("ar_description");
-            $table->string('image')->nullable()->default('uploads\clientreviews\review.png');
+            $table->string('image')->nullable()->default('uploads/clientreviews/review.png');
 
             $table->bigInteger('field_id')->unsigned()->nullable();
             $table->foreign('field_id')->references('id')->on('fields')->onDelete('cascade');

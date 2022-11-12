@@ -46,7 +46,38 @@
                 <i class="fas fa-edit"></i><span>تعديل بيانات الحساب</span>
             </a>
         </li>
-      
+        <li class="{{is_active('services')}}">
+            <a href="{{route('services.index')}}"  class="{{is_active('services')}}">
+                    <i class="fa fa-server"></i><span>الخدمات</span>
+            </a>
+        </li>
+        <li class="{{is_active('clients')}}">
+            <a href="{{route('clients.index')}}"  class="{{is_active('clients')}}">
+                    <i class="fas fa-user-tie"></i><span>العملاء</span>
+            </a>
+
+        </li>
+        <li class="{{is_active('fields')}}">
+            <a href="{{route('fields.index')}}"  class="{{is_active('fields')}}">
+                    <i class="fa fa-columns"></i><span>المجالات</span>
+            </a>
+        </li>
+        <li class="{{is_active('employees')}}">
+            <a href="{{route('employees.index')}}"  class="{{is_active('employees')}}">
+                    <i class="fa fa-user"></i><span> الموظفين</span><span class="badge badge-red contact_count" ></span>
+            </a>
+        </li>
+        <li class="{{is_active('clientreviews')}}">
+            <a href="{{route('clientreviews.index')}}"  class="{{is_active('clientreviews')}}">
+                    <i class="fa fa-newspaper"></i><span> اراء العملاء</span><span class="badge badge-red contact_count" ></span>
+            </a>
+        </li>
+        <li class="{{is_active('jobs')}}">
+            <a href="{{route('jobs.index')}}"  class="{{is_active('jobs')}}">
+                    <i class="fa fa-gear"></i><span>الوظائف</span>
+            </a>
+
+        </li>
         <li class="{{is_active('videos')}}">
             <a href="{{route('videos.index')}}"  class="{{is_active('videos')}}">
                     <i class="fa fa-image"></i><span>فديوهات</span>
@@ -59,36 +90,10 @@
             </a>
 
         </li>
-        <li class="{{is_active('services')}}">
-            <a href="{{route('services.index')}}"  class="{{is_active('services')}}">
-                    <i class="far fa-newspaper"></i><span>الخدمات</span>
-            </a>
+        
 
-        </li>
-        <li class="{{is_active('fields')}}">
-            <a href="{{route('fields.index')}}"  class="{{is_active('fields')}}">
-                    <i class="fa fa-image"></i><span>المجالات</span>
-            </a>
+        
 
-        </li>
-        <li class="{{is_active('clients')}}">
-            <a href="{{route('clients.index')}}"  class="{{is_active('clients')}}">
-                    <i class="fa fa-image"></i><span>العملاء</span>
-            </a>
-
-        </li>
-        <li class="{{is_active('employees')}}">
-            <a href="{{route('employees.index')}}"  class="{{is_active('employees')}}">
-                    <i class="fa fa-question"></i><span> الموظفين</span><span class="badge badge-red contact_count" ></span>
-            </a>
-
-        </li>
-        <li class="{{is_active('clientreviews')}}">
-            <a href="{{route('clientreviews.index')}}"  class="{{is_active('clientreviews')}}">
-                    <i class="fa fa-question"></i><span> اراء العملاء</span><span class="badge badge-red contact_count" ></span>
-            </a>
-
-        </li>
         <li >
             <a class="dropdown-item" href="{{ route('logout') }}"
             onclick="event.preventDefault();

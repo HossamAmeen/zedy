@@ -1,5 +1,5 @@
 @extends('back-end.layout.app')
- @php $row_num = 1;   $pageTitle = "عرض الوحدات" @endphp  
+ @php $row_num = 1;   $pageTitle = "عرض الوظائف" @endphp  
 @section('title')
    {{$pageTitle}}
 @endsection
@@ -24,23 +24,19 @@
                         <thead>
                             <tr>
                             <th>#</th>
-                            <th>اسم المشروع</th>
-                            <th>رقم الوحده</th>
-                                <th>الوصف</th>
-                                <th>الصورة</th>
-                                <th>المستخدم</th>
-                                <th></th>
+                            <th>الاسم</th>
+                            <th> النوع </th>
+                            <th>المستخدم</th>
+                            <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($rows as $item)
                                  <tr>
-                                    <td> {{$row_num++}}</td>
-                                    <td>{{$item->project->ar_name ?? ""}}</td>
-                                    <td>{{$item->number}}</td>
-                                    <td width="30%">{!!$item->ar_description!!}</td>
-                                    <td>  <img src="{{asset($item->image)}}" height="60px" width="60px"></td>
-                                    <td>{{ isset($item->user) ? $item->user->user_name : '' }}</td>
+                                    <td> {{$item->item_order}}</td>
+                                    <td>{{$item->ar_name}}</td>
+                                    <td>{{$item->type}}</td>
+                                   <td>{{ isset($item->user) ? $item->user->user_name : '' }}</td>
                                     <td>
                                      @include('back-end.shared.buttons.delete')
                                     </td>
