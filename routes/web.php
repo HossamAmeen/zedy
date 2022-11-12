@@ -2,7 +2,7 @@
 
 
 
-Route::prefix('admin')->group(function(){
+// Route::prefix('admin')->group(function(){
     Auth::routes();
 
     Route::any('sendToken' , 'BackEnd\ConfigrationController@sendToken')->name('forget.password');
@@ -23,4 +23,4 @@ Route::prefix('admin')->group(function(){
         Route::resource('videos', 'VideoController'); 
         Route::resource('contactuses', 'ContackUsController'); 
     });
-});
+// });
