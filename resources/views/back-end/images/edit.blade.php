@@ -28,7 +28,7 @@
                     {{method_field('PUT')}}
 
                 @include('back-end.'.$folderName.'.form')    
-                <img src="{{asset("uploads/".$routeName.'/'.$row->image)}}" height="300px" width="300px" style="margin:0 10%;"> <br><br>
+                <img src="{{asset($row->path)}}" height="300px" width="300px" style="margin:0 10%;"> <br><br>
                 
               
                 <div class="form-group">

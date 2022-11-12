@@ -19,7 +19,7 @@ Route::prefix('admin')->group(function(){
         Route::resource('employees', 'EmployeeController');
         Route::resource('clientreviews', 'ClientReviewController');
         Route::resource('jobs', 'JobController'); 
-        Route::resource('images', 'VideoController'); 
+        Route::resource('images', 'ImagesController'); 
         Route::resource('videos', 'VideoController'); 
         Route::resource('contactuses', 'ContackUsController'); 
     });

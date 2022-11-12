@@ -25,7 +25,7 @@
                             <tr>
                             <th>#</th>
                             <th>الصورة</th>
-                            <th>المشروع</th>
+                            <th>الوصف</th>
                             <th>المستخدم</th>
                                 
                                 <th></th>
@@ -36,20 +36,12 @@
                                  <tr>
                                     <td> {{$row_num++}}</td>
                                     <td>  <img src="{{asset($item->path)}}" height="60px" width="60px"></td>
-                                    <td>  {{$item->project->ar_name ??""}}</td>
+                                    <td>  {{$item->ar_name}}</td>
                                     <td>{{ isset($item->user) ? $item->user->user_name : '' }}</td>
                                    
                                     <td>
-                                            <form action="{{ route($routeName.'.destroy' , ['id' => $item]) }}" method="post">
-                                                    {{ csrf_field() }}
-                                                    {{ method_field('delete') }}
-                                                    
-                                                    <button type="submit" rel="tooltip" title="" class="btn btn-danger" onclick="check()" data-original-title="Remove {{ $sModuleName }}">
-                                                        <i class="material-icons">حذف</i>
-                                                    </button>
-                                                </form>
-                                   
-                                    </td>
+                                        @include('back-end.shared.buttons.delete')
+                                       </td>
                                 </tr>
                             @endforeach
                         </tbody>

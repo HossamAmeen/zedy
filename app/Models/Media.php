@@ -9,13 +9,15 @@ class Media extends Model
 {
     use SoftDeletes;
     protected $fillable = [
-       'type', 'path' , "user_id"
+       'item_order','type', 'path' ,'name','ar_name', "user_id"
     ];
     public function user(){
         return $this->belongsTo(User::class);
     }
-    public function project(){
-        return $this->belongsTo(Project::class);
+    public function getPathAttribute($value)
+    {
+        return asset($value);
     }
+
     
 }

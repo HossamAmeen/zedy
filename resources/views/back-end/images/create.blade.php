@@ -1,5 +1,5 @@
 @extends('back-end.layout.app')
-@php $pageTitle = "إضافه مسؤول " @endphp
+@php $pageTitle = "إضافه صورة " @endphp
 @section('title')
 {{ $pageTitle }}
 @endsection
@@ -19,32 +19,8 @@
     enctype="multipart/form-data">
     @csrf
 
-    @php $input = "image"; @endphp
-    <div class="form-group">
-        <label class="col-md-2 control-label">الصورة</label>
-        <div class="col-md-10 ls-group-input">
-            <input name="{{ $input }}" id="file-3" type="file">
-        </div>
-        @error($input)
-        <span class="invalid-feedback" role="alert">
-            <strong style="margin-right: 25%;color:red">{{ $message }}</strong>
-        </span>
-        @enderror
-    </div>
-    @php $input = "project_id"; @endphp
-    <div class="form-group">
-        <label class="col-lg-2 control-label"> تابعه لمشروع </label>
-        <div class="col-lg-10">
-            <select name="{{ $input }}" class="form-control">
-                @foreach ($projects as $item)
-                <option value={{$item->id}} @if(isset($row) && $row->$input == $item->id) selected @endif
-                    >{{$item->ar_name}}</option>
-                @endforeach
-
-            </select>
-        </div>
-    </div>
-
+  
+    @include('back-end.'.$folderName.'.form')  
 
     <div class="form-group">
         <div class="col-lg-offset-2 col-lg-10">

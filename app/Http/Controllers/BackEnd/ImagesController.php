@@ -4,7 +4,7 @@ namespace App\Http\Controllers\BackEnd;
 use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\{Media,Project};
+use App\Models\{Media};
 class ImagesController extends BackEndController
 {
     public function __construct(Media $model)
@@ -48,9 +48,5 @@ class ImagesController extends BackEndController
         {
             return $rows->where('type','image');
         }
-      public function append($row)
-      {
-        $data['projects']=Project::all();
-        return $data;
-      }
+
 }

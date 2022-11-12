@@ -31,7 +31,7 @@ class APIController extends Controller
 
     public function clients($id=null)
     {
-        $items = Client::all();
+        $items = Client::orderBy('item_order', 'DESC')->get();;
         if(isset($id))
         {
             $items = Client::find($id);
@@ -43,7 +43,7 @@ class APIController extends Controller
 
     public function fields($id=null)
     {
-        $items = Field::all();
+        $items = Field::orderBy('item_order', 'DESC')->get();;
         if(isset($id))
         {
             $items = Field::find($id);
@@ -54,7 +54,7 @@ class APIController extends Controller
     }
     public function employees($id=null)
     {
-        $items = Employee::all();
+        $items = Employee::orderBy('item_order', 'DESC')->get();;
         if(isset($id))
         {
             $items = Employee::find($id);
@@ -65,7 +65,7 @@ class APIController extends Controller
     }
     public function client_reviews($id=null)
     {
-        $items = ClientReview::all();
+        $items = ClientReview::orderBy('item_order', 'DESC')->get();;
         if(isset($id))
         {
             $items = ClientReview::find($id);
@@ -74,14 +74,9 @@ class APIController extends Controller
         return $this->APIResponse($items, null, 200);
 
     }
-    public function videos($id=null)
+    public function media($id=null)
     {
-        $items = Media::where('type', 'video')->get();
-        if(isset($id))
-        {
-            $items = Media::find($id);
-        }
-        
+        $items = Media::where('type', request("type"))->orderBy('item_order', 'DESC')->get();      
         return $this->APIResponse($items, null, 200);
 
     }

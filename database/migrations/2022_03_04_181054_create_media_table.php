@@ -15,9 +15,11 @@ class CreateMediaTable extends Migration
     {
         Schema::create('media', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('item_order')->unsigned()->nullable();
             $table->string('type')->default('image');
             $table->string('path');
-
+            $table->text("name")->nullable();
+            $table->text("ar_name")->nullable();
             $table->bigInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->softDeletes();

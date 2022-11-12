@@ -24,6 +24,7 @@
                         <thead>
                             <tr>
                             <th>#</th>
+                                <th>اسم الفديو</th>
                                 <th>الفديو</th>
                                 <th>المستخدم</th>
                                 <th></th>
@@ -38,7 +39,8 @@
                                     <td>
                                         <iframe width="560" height="315"
                                              src="https://www.youtube.com/embed/{{$item->path}}">
-                                        </iframe>               
+                                        </iframe>         
+                                    </td>      
                                    <td>{{ isset($item->user) ? $item->user->user_name : '' }}</td>
                                     <td>
                                             <form action="{{ route($routeName.'.destroy' , ['id' => $item]) }}" method="post">

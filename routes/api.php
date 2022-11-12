@@ -22,5 +22,6 @@ Route::get('clients/{id?}', 'APIController@clients');
 Route::get('fields/{id?}', 'APIController@fields');
 Route::get('employees/{id?}', 'APIController@employees');
 Route::get('client-reviews/{id?}', 'APIController@client_reviews');
-Route::get('videos/{id?}', 'APIController@videos');
+Route::get('videos/{id?}', 'APIController@media');
 Route::get('jobs/{id?}', 'APIController@jobs');
+Route::get('sliders', 'APIController@media');
