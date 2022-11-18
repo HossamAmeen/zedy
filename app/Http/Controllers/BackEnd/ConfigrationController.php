@@ -4,6 +4,7 @@ namespace App\Http\Controllers\BackEnd;
 
 use App\Models\Configration;
 use Illuminate\Http\Request;
+use Auth;
 
 class ConfigrationController extends BackEndController
 {
@@ -82,5 +83,10 @@ class ConfigrationController extends BackEndController
             return view('back-end.resetpassword', compact('id', 'token'));
         }
         return redirect()->route('login');
+    }
+
+    public function profile()
+    {
+        return redirect()->route("users.edit", ['id' => Auth::user()->id]);
     }
 }
