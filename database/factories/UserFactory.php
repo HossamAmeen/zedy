@@ -69,8 +69,8 @@ $factory->define(App\Models\Client::class, function (Faker $faker) {
     return [
         'name'=> $faker->name ,
         'ar_name' => $faker->name . "عربي",
-        'description' => $faker->text,
-        'ar_description' => $faker->text."عربي",
+        'description' => substr($faker->text, 0, 30),
+        'ar_description' =>  substr($faker->text."عربي", 0, 30),
         "item_order" => 1,
         "user_id" => 1
     ];
@@ -83,11 +83,11 @@ $factory->define(App\Models\ClientReview::class, function (Faker $faker) {
         'description' => $faker->text,
         'ar_description' => $faker->text."عربي",
         "item_order" => 1,
+        'field_id'=>$faker->randomElement(range(1,10)),
         "user_id" => 1
     ];
 });
 $factory->define(App\Models\Employee::class, function (Faker $faker) {
-
     return [
         'name'=> $faker->name ,
         'ar_name' => $faker->name . "عربي",

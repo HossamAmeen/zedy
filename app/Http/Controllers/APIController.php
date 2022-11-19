@@ -69,7 +69,7 @@ class APIController extends Controller
     }
     public function client_reviews($id=null)
     {
-        $items = ClientReview::orderBy('item_order', 'DESC')->get();;
+        $items = ClientReview::with('field:id,name,ar_name')->orderBy('item_order', 'DESC')->get();;
         if(isset($id))
         {
             $items = ClientReview::find($id);

@@ -54,8 +54,34 @@
   </div>
 </div>
 
+@php $input = "ar_description"; @endphp
+<div class="form-group">
+  <label class="col-lg-2 control-label">الوصف</label>
+  <div class="col-lg-10">
+    <input type="text" name="{{ $input }}" @if(isset($row)) value="{{$row->$input}}" @else
+      value="{{Request::old($input)}}" @endif class="form-control" required>
+    @error($input)
+    <div class="alert alert-danger" role="alert" style="text-align: center">
+      <strong>{{ $message }}</strong>
+    </div>
+    @enderror
+  </div>
+</div>
+@php $input = "description"; @endphp
+<div class="form-group">
+  <label class="col-lg-2 control-label"> الوصف بالانجليزي </label>
+  <div class="col-lg-10">
+    <input type="text" name="{{ $input }}" @if(isset($row)) value="{{$row->$input}}" @else
+      value="{{Request::old($input)}}" @endif class="form-control">
+    @error($input)
+    <div class="alert alert-danger" role="alert" style="text-align: center">
+      <strong>{{ $message }}</strong>
+    </div>
+    @enderror
+  </div>
+</div>
 
-<label class="col-md-2 control-label">الوصف بالعربي</label>
+{{-- <label class="col-md-2 control-label">الوصف بالعربي</label>
 @php $input = "ar_description"; @endphp
 <div class="panel-body no-padding">
   <textarea class="summernote" style="margin-right: 25%" name="{{ $input }}" id="demo" rows="10" cols="100">
@@ -79,4 +105,4 @@
 <div class="alert alert-danger" role="alert" style="text-align: center">
   <strong>{{ $message }}</strong>
 </div>
-@enderror
+@enderror --}}
