@@ -40,6 +40,20 @@
   <span style="margin-right: 15%;color:red;font-size:15px">يفضل رفع الصوره 400 * 400 </span>
 </div>
 
+@php $input = "color"; @endphp
+<div class="form-group">
+  <label class="col-lg-2 control-label">لون الكارد </label>
+  <div class="col-lg-10">
+    <input type="color" name="{{ $input }}" value="{{$row->$input ?? ''}}"
+      class="form-control" required>
+    @error($input)
+    <div class="alert alert-danger" role="alert" style="text-align: center">
+      <strong>{{ $message }}</strong>
+    </div>
+    @enderror
+  </div>
+</div>
+
 @php $input = "item_order"; @endphp
 <div class="form-group">
   <label class="col-lg-2 control-label">ترتيب </label>

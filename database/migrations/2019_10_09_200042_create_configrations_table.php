@@ -54,6 +54,7 @@ class CreateConfigrationsTable extends Migration
             $table->string('location')->nullable();
             $table->string('phone')->nullable();
             $table->string('phone2')->nullable();
+            $table->string('google_play_link')->nullable(); 
 
 
             

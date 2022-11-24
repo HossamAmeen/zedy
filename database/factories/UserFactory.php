@@ -44,6 +44,7 @@ $factory->define(App\Models\Configration::class, function (Faker $faker) {
         "whatsapp" => "01010079798",
         'twitter' => "https://twitter.com/",
         'instagram' => "https://www.instagram.com/",
+        "google_play_link" =>"https://play.google.com/store/apps",
         "location"=> "", 
         'phone' => "01010079795",
         'phone2' => "01010079795",
@@ -80,8 +81,8 @@ $factory->define(App\Models\ClientReview::class, function (Faker $faker) {
     return [
         'name'=> $faker->name ,
         'ar_name' => $faker->name . "عربي",
-        'description' => $faker->text,
-        'ar_description' => $faker->text."عربي",
+        'description' => substr($faker->text, 0, 30),
+        'ar_description' =>  substr($faker->text."عربي", 0, 30),
         "item_order" => 1,
         'field_id'=>$faker->randomElement(range(1,10)),
         "user_id" => 1
