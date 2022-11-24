@@ -62,6 +62,7 @@ $factory->define(App\Models\Service::class, function (Faker $faker) {
         'description' => $faker->text,
         'ar_description' => $faker->text."عربي",
         "item_order" => 1,
+        'color'=> $faker->randomElement(array("#00ff40", "#30ff10", "#10ff40")),
         "user_id" => 1
     ];
 });
