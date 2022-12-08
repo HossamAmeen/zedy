@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
     App\Models\Media::create(
         [
             "type"=>"video",
-            "path"=>"https://www.youtube.com/watch?v=JtsemNHLGeI&list=PLDoPjvoNmBAzqag2d8Rnz2gBdrDlOxv4B&index=2",
+            "path"=>"JtsemNHLGeI&list=PLDoPjvoNmBAzqag2d8Rnz2gBdrDlOxv4B&index=2",
             'name' => "video name",
             'ar_name' => "اسم الفديو",
             "user_id"=>1
