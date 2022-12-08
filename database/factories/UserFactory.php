@@ -120,7 +120,7 @@ $factory->define(App\Models\Job::class, function (Faker $faker) {
         "item_order" => 1,
         'name'=> $faker->name ,
         'ar_name'=> $faker->name. "عربي" ,
-        'type' => $faker->randomElement(['ذكر', 'انثي,ذكر' , 'انثي']),
+        'type' => $faker->randomElement(['ذكر', 'انثي']),
         "user_id" => 1
     ];
 });
