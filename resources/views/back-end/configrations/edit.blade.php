@@ -379,7 +379,7 @@
                         <label class="col-lg-2 control-label">head meta</label>
 
                         <div class="col-lg-10">
-                            <textarea class="form-control">{{isset($row) ? $row->{$input} : Request::old($input)}}</textarea>
+                            <textarea name="{{ $input }}" class="form-control">{{isset($row) ? $row->{$input} : Request::old($input)}}</textarea>
                             {{-- <input type="text" name="{{ $input }}"
                                 value="{{ isset($row) ? $row->{$input} : Request::old($input) }}" class="form-control"> --}}
                             @error($input)
@@ -394,7 +394,7 @@
                         <label class="col-lg-2 control-label">footer meta</label>
 
                         <div class="col-lg-10">
-                            <textarea class="form-control">{{isset($row) ? $row->{$input} : Request::old($input)}}</textarea>
+                            <textarea name="{{ $input }}" class="form-control">{{isset($row) ? $row->{$input} : Request::old($input)}}</textarea>
                             @error($input)
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
