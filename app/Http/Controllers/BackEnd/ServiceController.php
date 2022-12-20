@@ -16,7 +16,7 @@ class ServiceController extends BackEndController
         $requestArray = $request->all();
         if($request->hasFile('image'))
         { 
-            $fileName = $this->uploadImage( $request , 530 , 432 );
+            $fileName = $this->uploadImage( $request , 800 , 400 );
           if(isset($requestArray['image']) )
           $requestArray['image'] =  $fileName;
         }
@@ -30,7 +30,7 @@ class ServiceController extends BackEndController
         $requestArray = $request->all();
         if($request->hasFile('image'))
         {
-            $fileName = $this->uploadImage( $request ,530 , 432 );
+            $fileName = $this->uploadImage( $request ,800 , 400 );
           if(isset($requestArray['image']) )
           $requestArray['image'] =  $fileName;
         }

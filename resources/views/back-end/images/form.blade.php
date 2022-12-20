@@ -1,3 +1,15 @@
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+
+
 @php $input = "ar_name"; @endphp
 <div class="form-group">
   <label class="col-lg-2 control-label">الاسم</label>

@@ -23,7 +23,7 @@ class UserController extends BackEndController
         $requestArray['password'] =  Hash::make($requestArray['password']);
         if(isset($requestArray['image']) )
         {
-            $fileName = $this->uploadImage($request );
+            $fileName = $this->uploadImage($request,  );
             $requestArray['image'] =  $fileName;
         }
         $requestArray['user_id'] = Auth::user()->id;

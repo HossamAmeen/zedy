@@ -16,7 +16,7 @@ class FieldController extends BackEndController
         $requestArray = $request->all();
         if($request->hasFile('image'))
         { 
-            $fileName = $this->uploadImage( $request , 530 , 432 );
+            $fileName = $this->uploadImage( $request , 300 , 300 );
           if(isset($requestArray['image']) )
           $requestArray['image'] =  $fileName;
         }
@@ -30,7 +30,7 @@ class FieldController extends BackEndController
         $requestArray = $request->all();
         if($request->hasFile('image'))
         {
-            $fileName = $this->uploadImage( $request ,530 , 432 );
+            $fileName = $this->uploadImage( $request ,300 , 300 );
           if(isset($requestArray['image']) )
           $requestArray['image'] =  $fileName;
         }
