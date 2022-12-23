@@ -57,7 +57,7 @@
 
 @php $input = "ar_description"; @endphp
 <div class="form-group">
-  <label class="col-lg-2 control-label">الوصف</label>
+  <label class="col-lg-2 control-label">رأي العميل</label>
   <div class="col-lg-10">
     <input type="text" name="{{ $input }}" @if(isset($row)) value="{{$row->$input}}" @else
       value="{{Request::old($input)}}" @endif class="form-control" required>
@@ -70,7 +70,7 @@
 </div>
 @php $input = "description"; @endphp
 <div class="form-group">
-  <label class="col-lg-2 control-label"> الوصف بالانجليزية </label>
+  <label class="col-lg-2 control-label"> رأي العميل بالانجليزية </label>
   <div class="col-lg-10">
     <input type="text" name="{{ $input }}" @if(isset($row)) value="{{$row->$input}}" @else
       value="{{Request::old($input)}}" @endif class="form-control">
