@@ -29,7 +29,7 @@
 <div class="form-group">
     <label class="col-lg-2 control-label"> نوع</label>
     <div class="col-lg-10">
-        <select name="{{ $input }}" class="form-control">
+        <select name="{{ $input }}" class="form-control" multiple>
           <option value="ذكر" @if(isset($row) && str_contains($row->type , 'ذكر')) selected @endif
             >ذكر</option>
           <option value="انثي" @if(isset($row) && str_contains($row->type , 'انثي')) selected @endif
