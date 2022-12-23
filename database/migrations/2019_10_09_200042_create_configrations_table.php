@@ -20,7 +20,7 @@ class CreateConfigrationsTable extends Migration
             $table->string('title')->nullable();
             $table->string('slide_description')->nullable();
             $table->string('ar_slide_description')->nullable();
-
+            
             $table->text('description')->nullable();
             $table->text('en_description')->nullable();
             $table->text('head_meta')->nullable();
@@ -39,6 +39,7 @@ class CreateConfigrationsTable extends Migration
             $table->string('ar_address')->nullable();
             
             $table->string('job_form_link')->nullable();
+            $table->string('internship_form_link')->nullable();
 
             $table->string('email')->nullable();
             # social media links

@@ -1,6 +1,6 @@
 @extends('back-end.layout.app')
 @php
-    $model_name = "الخدمة";
+    $model_name = "راي العميل";
     $pageTitle = "تعديل " . $model_name ;
  @endphp  
 @section('title')
