@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Employee extends Model
 {
     protected $fillable = [
-        'name' , 'ar_name' , 'image' , "user_id"
+        'name' , 'ar_name' , 'image' ,"item_order", "user_id"
     ];
     public function user(){
         return $this->belongsTo(User::class);

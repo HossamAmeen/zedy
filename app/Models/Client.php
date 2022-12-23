@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Client extends Model
 {
     protected $fillable = [
-        'name' , 'description','ar_name' , 'ar_description', 'image' , "user_id"
+        'name' , 'description','ar_name' , 'ar_description', 'image' ,"item_order", "user_id"
     ];
     public function user(){
         return $this->belongsTo(User::class);

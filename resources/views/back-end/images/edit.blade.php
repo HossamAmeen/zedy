@@ -33,7 +33,7 @@
               
                 <div class="form-group">
                         <div class="col-lg-9 col-lg-offset-3">
-                            <button type="submit" class="btn btn-primary" onclick="myFunction()">تعديل</button>
+                            <button type="submit" class="btn btn-primary" onclick="myFunction()">حفظ</button>
                         </div>
                     </div>
             </form>  

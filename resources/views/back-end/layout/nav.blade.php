@@ -2,9 +2,9 @@
     <div class="container-fluid">
         <!--Logo text start-->
         <div class="header-logo">
-            {{-- <a href="{{route('home' , 'ar')}}" title="">
-                <h1>{{$configration->title}}</h1>
-            </a> --}}
+            <a href="#" title="">
+                <h1>{{$configration->ar_title}}</h1>
+            </a>
         </div>
         <!--Logo text End-->
         <div class="top-navigation">

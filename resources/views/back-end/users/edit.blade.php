@@ -1,9 +1,9 @@
 @extends('back-end.layout.app')
 @php
 if($row->role == 1 )
-$pageTitle = " تعديل بيانات المسؤول " . $row->user_name ;
+$pageTitle = " تعديل بيانات المستخدم " . $row->user_name ;
 else {
-$pageTitle = " تعديل بيانات الموظف " . $row->user_name;
+$pageTitle = " تعديل بيانات المستخدم " . $row->user_name;
 }
 @endphp
 @section('title')

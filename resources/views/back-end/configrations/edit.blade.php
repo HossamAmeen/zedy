@@ -15,7 +15,9 @@
 <div class="row" style="  padding-right: 10%;">
     <div class="col-md-10">
         {{-- <div class="panel panel-default"> --}}
-
+            
+          
+           
             <div class="panel-body">
                 <form class="form-horizontal ls_form ls_form_horizontal"
                     action="{{route('configrations.update', ['id' => $row])}}" method="POST">
@@ -43,7 +45,7 @@
                     </div>
                     @php $input = "title"; @endphp
                     <div class="form-group">
-                        <label class="col-lg-2 control-label">اسم الموقع بالانجليزي</label>
+                        <label class="col-lg-2 control-label">اسم الموقع بالانجليزية</label>
 
                         <div class="col-lg-10">
                             <input type="text" name="{{ $input }}"
@@ -56,11 +58,9 @@
                             @enderror
                         </div>
                     </div>
-                   
-                   
                     @php $input = "description"; @endphp
                     <div class="form-group">
-                        <label class="col-lg-2 control-label">وصف الرئيسيه</label>
+                        <label class="col-lg-2 control-label">وصف الموقع</label>
 
                         <div class="col-lg-10">
                             <input type="text" name="{{ $input }}"
@@ -74,7 +74,7 @@
                     </div>
                     @php $input = "en_description"; @endphp
                     <div class="form-group">
-                        <label class="col-lg-2 control-label"> وصف الرئيسيه بالانجليزي</label>
+                        <label class="col-lg-2 control-label"> وصف الموقع بالانجليزية</label>
 
                         <div class="col-lg-10">
                             <input type="text" name="{{ $input }}"
@@ -88,7 +88,7 @@
                     </div>
                     @php $input = "job_form_link"; @endphp
                     <div class="form-group">
-                        <label class="col-lg-2 control-label">job form link</label>
+                        <label class="col-lg-2 control-label">Jobs Application Form</label>
 
                         <div class="col-lg-10">
                             <input type="text" name="{{ $input }}"
@@ -102,7 +102,7 @@
                     </div>
                     @php $input = "location"; @endphp
                     <div class="form-group">
-                        <label class="col-lg-2 control-label">location</label>
+                        <label class="col-lg-2 control-label">Google Map Location</label>
 
                         <div class="col-lg-10">
                             <input type="text" name="{{ $input }}"
@@ -130,7 +130,7 @@
                     </div>
                      @php $input = "company_profile"; @endphp
                     <div class="form-group">
-                        <label class="col-lg-2 control-label">company profile</label>
+                        <label class="col-lg-2 control-label">Company Profile</label>
 
                         <div class="col-lg-10">
                             <input type="text" name="{{ $input }}"
@@ -146,7 +146,7 @@
                     
                     @php $input = "ar_address"; @endphp
                     <div class="form-group">
-                        <label class="col-lg-2 control-label">العنوان</label>
+                        <label class="col-lg-2 control-label">عنوان المقر الرئيسي</label>
 
                         <div class="col-lg-10">
                             <input type="text" name="{{ $input }}"
@@ -158,9 +158,9 @@
                             @enderror
                         </div>
                     </div>
-                    @php $input = "beaddresshance"; @endphp
+                    @php $input = "address"; @endphp
                     <div class="form-group">
-                        <label class="col-lg-2 control-label">العنوان بالانجليزي</label>
+                        <label class="col-lg-2 control-label">عنوان المقر الرئيسي بالانجليزية</label>
 
                         <div class="col-lg-10">
                             <input type="text" name="{{ $input }}"
@@ -176,8 +176,7 @@
 
                     @php $input = "email"; @endphp
                     <div class="form-group">
-                        <label class="col-lg-2 control-label">البريد</label>
-
+                        <label class="col-lg-2 control-label">البريد الالكتروني</label>
                         <div class="col-lg-10">
                             <input type="text" name="{{ $input }}"
                                 value="{{ isset($row) ? $row->{$input} : Request::old($input) }} " class="form-control">
@@ -190,7 +189,7 @@
                     </div>
                     @php $input = "phone"; @endphp
                     <div class="form-group">
-                        <label class="col-lg-2 control-label">هاتف</label>
+                        <label class="col-lg-2 control-label">هاتف رقم 1</label>
 
                         <div class="col-lg-10">
                             <input type="text" name="{{ $input }}"
@@ -204,7 +203,7 @@
                     </div>
                     @php $input = "phone2"; @endphp
                     <div class="form-group">
-                        <label class="col-lg-2 control-label">هاتف الثاني</label>
+                        <label class="col-lg-2 control-label">هاتف رقم ٢</label>
 
                         <div class="col-lg-10">
                             <input type="text" name="{{ $input }}"
@@ -215,11 +214,11 @@
                             </span>
                             @enderror
                         </div>
-                    </div>
+                    </div>              
 
                     @php $input = "whatsapp"; @endphp
                     <div class="form-group">
-                        <label class="col-lg-2 control-label">whatsapp</label>
+                        <label class="col-lg-2 control-label">رقم الواتس آب</label>
 
                         <div class="col-lg-10">
                             <input type="text" name="{{ $input }}"
@@ -247,7 +246,7 @@
                     </div>
                     @php $input = "facebook"; @endphp
                     <div class="form-group">
-                        <label class="col-lg-2 control-label">facebook account</label>
+                        <label class="col-lg-2 control-label">رابط صفحة الفيس بوك</label>
 
                         <div class="col-lg-10">
                             <input type="text" name="{{ $input }}"
@@ -261,7 +260,7 @@
                     </div>
                     @php $input = "twitter"; @endphp
                     <div class="form-group">
-                        <label class="col-lg-2 control-label">twitter account</label>
+                        <label class="col-lg-2 control-label">رابط حساب تويتر</label>
 
                         <div class="col-lg-10">
                             <input type="text" name="{{ $input }}"
@@ -275,7 +274,7 @@
                     </div>
                     @php $input = "instagram"; @endphp
                     <div class="form-group">
-                        <label class="col-lg-2 control-label">instagram</label>
+                        <label class="col-lg-2 control-label">رابط حساب الانستجرام</label>
 
                         <div class="col-lg-10">
                             <input type="text" name="{{ $input }}"
@@ -289,7 +288,7 @@
                     </div>
                     @php $input = "linkedin"; @endphp
                     <div class="form-group">
-                        <label class="col-lg-2 control-label">linkedin</label>
+                        <label class="col-lg-2 control-label">رابط حساب لينكد إن</label>
 
                         <div class="col-lg-10">
                             <input type="text" name="{{ $input }}"
@@ -303,7 +302,7 @@
                     </div>
                     @php $input = "behance"; @endphp
                     <div class="form-group">
-                        <label class="col-lg-2 control-label">behance</label>
+                        <label class="col-lg-2 control-label">رابط بيهانس</label>
 
                         <div class="col-lg-10">
                             <input type="text" name="{{ $input }}"
@@ -317,7 +316,7 @@
                     </div>
                     @php $input = "projects_counter"; @endphp
                     <div class="form-group">
-                        <label class="col-lg-2 control-label">عدد المشاريع </label>
+                        <label class="col-lg-2 control-label">عدد المشروعات</label>
                         <div class="col-lg-10">
                             <input type="number" name="{{ $input }}"
                                 value="{{isset($row) ? (int)$row->{$input}:Request::old($input)}}" class="form-control">
@@ -330,7 +329,7 @@
                     </div>
                     @php $input = "training_course_count"; @endphp
                     <div class="form-group">
-                        <label class="col-lg-2 control-label">عدد الدورات التدريبة</label>
+                        <label class="col-lg-2 control-label">عدد الدورات التدريبية</label>
 
                         <div class="col-lg-10">
                             <input type="number" name="{{ $input }}"
@@ -356,10 +355,12 @@
                             @enderror
                         </div>
                     </div>
-
+                    
+                    
+                    
                     @php $input = "experience_year_counter"; @endphp
                     <div class="form-group">
-                        <label class="col-lg-2 control-label">عدد سنين الخبره</label>
+                        <label class="col-lg-2 control-label">عدد سنين الخبرة</label>
 
                         <div class="col-lg-10">
                             <input type="number" name="{{ $input }}"
@@ -379,7 +380,7 @@
                         <label class="col-lg-2 control-label">head meta</label>
 
                         <div class="col-lg-10">
-                            <textarea name="{{ $input }}" class="form-control">{{isset($row) ? $row->{$input} : Request::old($input)}}</textarea>
+                            <textarea name="{{ $input }}" class="form-control" rows="15">{{isset($row) ? $row->{$input} : Request::old($input)}}</textarea>
                             {{-- <input type="text" name="{{ $input }}"
                                 value="{{ isset($row) ? $row->{$input} : Request::old($input) }}" class="form-control"> --}}
                             @error($input)
@@ -394,18 +395,17 @@
                         <label class="col-lg-2 control-label">footer meta</label>
 
                         <div class="col-lg-10">
-                            <textarea name="{{ $input }}" class="form-control">{{isset($row) ? $row->{$input} : Request::old($input)}}</textarea>
+                            <textarea name="{{ $input }}" class="form-control" rows="15">{{isset($row) ? $row->{$input} : Request::old($input)}}</textarea>
                             @error($input)
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
                         </div>
-                    </div>
-
+                    </div>                    
                     <div class="form-group">
                         <div class="col-lg-offset-2 col-lg-10">
-                            <button class="btn btn-primary" type="submit">تحديث</button>
+                            <button class="btn btn-primary" type="submit">حفظ</button>
                         </div>
                     </div>
                 </form>

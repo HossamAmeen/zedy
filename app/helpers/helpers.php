@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Input as Input;
 
 function is_active(string $routeName)
 {
-    return null !== request()->segment(2) && request()->segment(2) == $routeName ? 'active' : '';
+    return null !== request()->segment(1) && request()->segment(1) == $routeName ? 'active' : '';
 }
 
 function edit_profle_is_active(string $routeName)

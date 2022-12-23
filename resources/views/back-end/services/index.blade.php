@@ -1,5 +1,5 @@
 @extends('back-end.layout.app')
- @php $row_num = 1;   $pageTitle = "عرض الخدمات" @endphp  
+ @php $row_num = 1;   $pageTitle = "الخدمات" @endphp  
 @section('title')
    {{$pageTitle}}
 @endsection
@@ -25,7 +25,9 @@
                             <tr>
                             <th>#</th>
                             <th>الاسم</th>
+                            <th>الاسم بالانجليزية</th>
                             <th>الوصف</th>
+                            <th>الوصف بالانجليزية</th>
                             <th>الصورة</th>
                             <th>المستخدم</th>
                             <th></th>
@@ -36,7 +38,9 @@
                                  <tr>
                                     <td> {{$item->item_order}}</td>
                                     <td>{{$item->ar_name}}</td>
+                                    <td>{{$item->name}}</td>
                                     <td width="30%">{!!$item->ar_description!!}</td>
+                                    <td width="30%">{!!$item->description!!}</td>
                                     <td>  <img src="{{asset($item->image)}}" height="60px" width="60px"></td>
                                     <td>{{ isset($item->user) ? $item->user->user_name : '' }}</td>
                                     <td>
@@ -48,3 +52,11 @@
                     </table>
     @endcomponent
 @endsection
+@push('js')
+
+<script type="text/javascript">
+    $(document).ready(function(){
+            $("#{{$routeName}}").addClass('active');
+        });
+</script>
+@endpush

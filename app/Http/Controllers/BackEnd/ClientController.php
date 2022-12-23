@@ -1,13 +1,13 @@
 <?php
 
 namespace App\Http\Controllers\BackEnd;
-use App\Models\CLient;
+use App\Models\Client;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
 class ClientController extends BackEndController
 {
-    public function __construct(CLient $model)
+    public function __construct(Client $model)
     {
         parent::__construct($model);
     }

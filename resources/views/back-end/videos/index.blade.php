@@ -43,14 +43,7 @@
                                     </td>      
                                    <td>{{ isset($item->user) ? $item->user->user_name : '' }}</td>
                                     <td>
-                                            <form action="{{ route($routeName.'.destroy' , ['id' => $item]) }}" method="post">
-                                                    {{ csrf_field() }}
-                                                    {{ method_field('delete') }}
-                                                    
-                                                    <button type="submit" rel="tooltip" title="" class="btn btn-danger" onclick="check()" data-original-title="Remove {{ $sModuleName }}">
-                                                        <i class="material-icons">حذف</i>
-                                                    </button>
-                                                </form>
+                                        @include('back-end.shared.buttons.delete')
                                    
                                     </td>
                                 </tr>

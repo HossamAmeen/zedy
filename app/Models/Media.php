@@ -16,7 +16,10 @@ class Media extends Model
     }
     public function getPathAttribute($value)
     {
-        return asset($value);
+        if ($this->type == "image")
+            return asset($value);
+        else
+            return $value;
     }
 
     

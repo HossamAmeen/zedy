@@ -114,15 +114,15 @@ class BackEndController extends Controller
     protected function uploadImage($request, $height = 400, $width = 400)
     {
         return FileHelper::storeImage("image", 'uploads/' . $this->getClassNameFromModel() . '/',$width, $height  );
-        $photo = $request->file('image');
-        $fileName = time() . str_random('10') . '.' . $photo->getClientOriginalExtension();
-        $destinationPath = 'uploads/' . $this->getClassNameFromModel() . '/';
-        $image = Image::make($photo->getRealPath())->resize($height, $width);
-        if (!is_dir($destinationPath)) {
-            mkdir($destinationPath);
-        }
-        $image->save($destinationPath . $fileName);
-        return 'uploads/' . $this->getClassNameFromModel() . '/' . $fileName;
+        // $photo = $request->file('image');
+        // $fileName = time() . str_random('10') . '.' . $photo->getClientOriginalExtension();
+        // $destinationPath = 'uploads/' . $this->getClassNameFromModel() . '/';
+        // $image = Image::make($photo->getRealPath())->resize($height, $width);
+        // if (!is_dir($destinationPath)) {
+        //     mkdir($destinationPath);
+        // }
+        // $image->save($destinationPath . $fileName);
+        // return 'uploads/' . $this->getClassNameFromModel() . '/' . $fileName;
     }
 
 

@@ -1,8 +1,9 @@
 <section id="left-navigation">
     <!--Left navigation user details start-->
     <div class="user-image">
-        <img src="{{asset( isset(Auth::user()->image) ? Auth::user()->image : 'panel/assets/images/demo/avatar-80.png')}}" alt=""  width="100" height="100"/>
-        <div class="user-online-status"><span class="user-status is-online  "></span> </div>
+        <img src="{{asset( isset(Auth::user()->image) ? Auth::user()->image : 'panel/assets/images/demo/avatar-80.png')}}" 
+            alt=""  width="100" height="100"/>
+        <div class="user-online-status"><span class="user-status is-online"></span> </div>
     </div>
     <ul class="social-icon">
         {{-- <li><a href="javascript:void(0)"><i class="fa fa-facebook"></i></a></li>
@@ -15,7 +16,7 @@
     <!--Phone Navigation Menu icon start-->
     <div class="phone-nav-box visible-xs">
         <a class="phone-logo" href="{{url('/')}}" title="">
-            <h1>al-masria</h1>
+            <h1>{{$configration->ar_title}}</h1>
         </a>
         <a class="phone-nav-control" href="javascript:void(0)">
             <span class="fa fa-bars"></span>
@@ -59,7 +60,7 @@
         </li>
         <li class="{{is_active('fields')}}">
             <a href="{{route('fields.index')}}"  class="{{is_active('fields')}}">
-                    <i class="fa fa-columns"></i><span>المجالات</span>
+                    <i class="fa fa-columns"></i><span>مجالات العمل</span>
             </a>
         </li>
         <li class="{{is_active('employees')}}">
@@ -69,7 +70,8 @@
         </li>
         <li class="{{is_active('clientreviews')}}">
             <a href="{{route('clientreviews.index')}}"  class="{{is_active('clientreviews')}}">
-                    <i class="fa fa-newspaper"></i><span> اراء العملاء</span><span class="badge badge-red contact_count" ></span>
+                    <i class="fa fa-
+                    paper"></i><span> اراء العملاء</span><span class="badge badge-red contact_count" ></span>
             </a>
         </li>
         <li class="{{is_active('jobs')}}">

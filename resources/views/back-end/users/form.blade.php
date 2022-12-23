@@ -39,7 +39,7 @@
 </div>
 @php $input = "password"; @endphp
 <div class="form-group">
-    <label class="col-lg-2 control-label">كلمة السر</label>
+    <label class="col-lg-2 control-label">كلمة المرور</label>
     <div class="col-lg-4">
         <input type="password" name="{{ $input }}" class="form-control" @if(!isset($row)) required @endif>
         @error($input)
@@ -51,7 +51,7 @@
 </div>
 @php $input = "password_confirmation"; @endphp
 <div class="form-group">
-    <label class="col-lg-2 control-label"> تاكيد كلمة السر</label>
+    <label class="col-lg-2 control-label"> تأكيد كلمة المرور</label>
     <div class="col-lg-4">
         <input type="password" name="{{ $input }}" class="form-control" @if(!isset($row)) required @endif>
         @error($input)

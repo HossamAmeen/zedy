@@ -26,7 +26,7 @@ class ClientReviewController extends BackEndController
         $requestArray = $request->all();
         if($request->hasFile('image'))
         { 
-            $fileName = $this->uploadImage($request , 530 , 432 );
+          $fileName = $this->uploadImage($request , 300 , 300 );
           if(isset($requestArray['image']) )
           $requestArray['image'] =  $fileName;
         }
@@ -49,14 +49,14 @@ class ClientReviewController extends BackEndController
         $row = $this->model->FindOrFail($id);
         if($request->hasFile('image'))
         {
-            $fileName = $this->uploadImage( $request ,530 , 432 );
+            $fileName = $this->uploadImage( $request ,300 , 300);
           if(isset($requestArray['image']) )
           $requestArray['image'] =  $fileName;
           if(File::exists($row->image) && 0) {
             File::delete($row->image);
         }
         }
-        $requestArray['user_id'] = الندي::user()->id;
+        $requestArray['user_id'] = Auth::user()->id;
       
         $row->update($requestArray);
         session()->flash('action', 'تم التحديث بنجاح');
