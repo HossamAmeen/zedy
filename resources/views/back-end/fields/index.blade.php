@@ -1,7 +1,7 @@
 @extends('back-end.layout.app')
  @php $row_num = 1;   $pageTitle = "عرض المجالات" @endphp  
 @section('title')
-   {{$pageTitle}}
+   {{"لوحة التحكم - " . $pageTitle }}
 @endsection
 
 @section('content')

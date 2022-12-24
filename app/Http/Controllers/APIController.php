@@ -19,9 +19,9 @@ class APIController extends Controller
         $item->{"fields_count"} = Field::get()->count();
         return $this->APIResponse($item, null, 200);
     }
-    public function services($id=null)
+    public function services($id=null, Request $request)
     {
-        $items = Service::orderBy('item_order', 'DESC')->get();
+        $items = Service::orderBy('item_order')->get();
         if(request('limit'))
             $items = $items->take(request('limit'));
         if(isset($id))
@@ -29,13 +29,15 @@ class APIController extends Controller
             $items = Service::find($id);
         }
         
-        return $this->APIResponse($items, null, 200);
+        // $header = request()->header('Accept-language');
+        // return $header;
+        return $this->APIResponse($items, null, 200 , "test");
 
     }
 
     public function clients($id=null)
     {
-        $items = Client::orderBy('item_order', 'DESC')->get();
+        $items = Client::orderBy('item_order')->get();
         if(request('limit'))
             $items = $items->take(request('limit'));
         if(isset($id))
@@ -49,7 +51,7 @@ class APIController extends Controller
 
     public function fields($id=null)
     {
-        $items = Field::orderBy('item_order', 'DESC')->get();
+        $items = Field::orderBy('item_order')->get();
         if(request('limit'))
             $items = $items->take(request('limit'));
         if(isset($id))
@@ -62,7 +64,7 @@ class APIController extends Controller
     }
     public function employees($id=null)
     {
-        $items = Employee::orderBy('item_order', 'DESC')->get();
+        $items = Employee::orderBy('item_order')->get();
         if(request('limit'))
             $items = $items->take(request('limit'));
         if(isset($id))
@@ -75,7 +77,7 @@ class APIController extends Controller
     }
     public function client_reviews($id=null)
     {
-        $items = ClientReview::with('field:id,name,ar_name')->orderBy('item_order', 'DESC')->get();;
+        $items = ClientReview::with('field:id,name,ar_name')->orderBy('item_order')->get();;
         if(request('limit'))
             $items = $items->take(request('limit'));
         if(isset($id))
@@ -88,7 +90,7 @@ class APIController extends Controller
     }
     public function media($id=null)
     {
-        $items = Media::where('type', request("type"))->orderBy('item_order', 'DESC')->get();
+        $items = Media::where('type', request("type"))->orderBy('item_order')->get();
         if(request('limit'))
             $items = $items->take(request('limit'));
         return $this->APIResponse($items, null, 200);
