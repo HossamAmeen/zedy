@@ -27,7 +27,7 @@ class VideoController extends BackEndController
             return redirect()->route($this->getClassNameFromModel().'.index');
         }
     
-        public function update($id , VideoRequest $request){
+        public function update($id , Request $request){
             $requestArray = $request->all();
             $row = $this->model->FindOrFail($id);           
             $requestArray['user_id'] = Auth::user()->id;
