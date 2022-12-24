@@ -35,7 +35,9 @@ class APIController extends Controller
 
     public function clients($id=null)
     {
-        $items = Client::orderBy('item_order', 'DESC')->get();;
+        $items = Client::orderBy('item_order', 'DESC')->get();
+        if(request('limit'))
+            $items = $items->take(request('limit'));
         if(isset($id))
         {
             $items = Client::find($id);
@@ -47,7 +49,9 @@ class APIController extends Controller
 
     public function fields($id=null)
     {
-        $items = Field::orderBy('item_order', 'DESC')->get();;
+        $items = Field::orderBy('item_order', 'DESC')->get();
+        if(request('limit'))
+            $items = $items->take(request('limit'));
         if(isset($id))
         {
             $items = Field::find($id);
@@ -58,7 +62,9 @@ class APIController extends Controller
     }
     public function employees($id=null)
     {
-        $items = Employee::orderBy('item_order', 'DESC')->get();;
+        $items = Employee::orderBy('item_order', 'DESC')->get();
+        if(request('limit'))
+            $items = $items->take(request('limit'));
         if(isset($id))
         {
             $items = Employee::find($id);
@@ -70,6 +76,8 @@ class APIController extends Controller
     public function client_reviews($id=null)
     {
         $items = ClientReview::with('field:id,name,ar_name')->orderBy('item_order', 'DESC')->get();;
+        if(request('limit'))
+            $items = $items->take(request('limit'));
         if(isset($id))
         {
             $items = ClientReview::find($id);
@@ -80,13 +88,17 @@ class APIController extends Controller
     }
     public function media($id=null)
     {
-        $items = Media::where('type', request("type"))->orderBy('item_order', 'DESC')->get();      
+        $items = Media::where('type', request("type"))->orderBy('item_order', 'DESC')->get();
+        if(request('limit'))
+            $items = $items->take(request('limit'));
         return $this->APIResponse($items, null, 200);
 
     }
     public function jobs($id=null)
     {
         $items = Job::get();
+        if(request('limit'))
+            $items = $items->take(request('limit'));
         if(isset($id))
         {
             $items = Job::find($id);

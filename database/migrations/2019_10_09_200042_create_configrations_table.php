@@ -23,8 +23,13 @@ class CreateConfigrationsTable extends Migration
             
             $table->text('description')->nullable();
             $table->text('en_description')->nullable();
+
+            
             $table->text('head_meta')->nullable();
             $table->text('footer_meta')->nullable();
+
+            $table->text('header_keywords')->nullable();
+            $table->text('en_header_keywords')->nullable();
 
             $table->integer('training_course_count')->nullable();
             $table->integer('trainee_count')->nullable();

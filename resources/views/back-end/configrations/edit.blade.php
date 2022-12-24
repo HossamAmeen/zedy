@@ -388,7 +388,36 @@
                     </div>
 
 
-                    
+                    @php $input = "header_keywords"; @endphp
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">header keywords</label>
+
+                        <div class="col-lg-10">
+                            <textarea name="{{ $input }}" class="form-control" rows="5">{{isset($row) ? $row->{$input} : Request::old($input)}}</textarea>
+                            {{-- <input type="text" name="{{ $input }}"
+                                value="{{ isset($row) ? $row->{$input} : Request::old($input) }}" class="form-control"> --}}
+                            @error($input)
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
+                    @php $input = "en_header_keywords"; @endphp
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Header keywords English</label>
+
+                        <div class="col-lg-10">
+                            <textarea name="{{ $input }}" class="form-control" rows="5">{{isset($row) ? $row->{$input} : Request::old($input)}}</textarea>
+                            {{-- <input type="text" name="{{ $input }}"
+                                value="{{ isset($row) ? $row->{$input} : Request::old($input) }}" class="form-control"> --}}
+                            @error($input)
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
                     @php $input = "head_meta"; @endphp
                     <div class="form-group">
                         <label class="col-lg-2 control-label">head meta</label>

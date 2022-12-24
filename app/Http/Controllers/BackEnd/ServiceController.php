@@ -12,7 +12,6 @@ class ServiceController extends BackEndController
         parent::__construct($model);
     }
     public function store(Request $request){
-       
         $requestArray = $request->all();
         if($request->hasFile('image'))
         { 
@@ -30,7 +29,7 @@ class ServiceController extends BackEndController
         $requestArray = $request->all();
         if($request->hasFile('image'))
         {
-            $fileName = $this->uploadImage( $request ,800 , 400 );
+            $fileName = $this->uploadImage( $request ,800 , 400);
           if(isset($requestArray['image']) )
           $requestArray['image'] =  $fileName;
         }
