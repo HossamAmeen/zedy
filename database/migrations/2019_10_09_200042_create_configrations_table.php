@@ -31,12 +31,14 @@ class CreateConfigrationsTable extends Migration
             $table->text('header_keywords')->nullable();
             $table->text('en_header_keywords')->nullable();
 
+            $table->integer('training_fields_count')->nullable();
             $table->integer('training_course_count')->nullable();
             $table->integer('trainee_count')->nullable();
 
             $table->integer('projects_counter')->nullable();
             $table->integer('clients_counter')->nullable();
             $table->integer('experience_year_counter')->nullable();
+            
             $table->string('video')->nullable();
             $table->string('video2')->nullable();
 

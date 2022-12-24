@@ -341,6 +341,20 @@
                             @enderror
                         </div>
                     </div>
+                    @php $input = "training_fields_count"; @endphp
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">عدد مجالات التدريب</label>
+
+                        <div class="col-lg-10">
+                            <input type="number" name="{{ $input }}"
+                                value="{{ isset($row) ? $row->{$input} : Request::old($input) }}" class="form-control">
+                            @error($input)
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
                     @php $input = "training_course_count"; @endphp
                     <div class="form-group">
                         <label class="col-lg-2 control-label">عدد الدورات التدريبية</label>
