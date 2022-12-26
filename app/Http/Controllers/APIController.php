@@ -17,11 +17,8 @@ class APIController extends Controller
         $item->{"team_count"} = Employee::get()->count();
         $item->{"videos_count"} = Media::where('type', 'video')->get()->count();
         $item->{"fields_count"} = Field::get()->count();
-        if ($language=="ar")
-            $pageTitle = "الرئيسية";
-        else
-            $pageTitle = "";
-        return $this->APIResponse($item, null,200 , $pageTitle);
+        
+        return $this->APIResponse($item, null,200 );
     }
     public function services($id=null, Request $request)
     {
@@ -37,7 +34,7 @@ class APIController extends Controller
             $pageTitle = "الخدمات";
         else
             $pageTitle = "";
-        return $this->APIResponse($items, null, 200 , $pageTitle);
+        return $this->APIResponse($items, null, 200 );
 
     }
 
@@ -50,11 +47,8 @@ class APIController extends Controller
         {
             $items = Client::find($id);
         }
-        if ($language=="ar")
-            $pageTitle = "عملاؤنا";
-        else
-            $pageTitle = "";
-        return $this->APIResponse($items, null,200 , $pageTitle);
+
+        return $this->APIResponse($items, null,200 );
 
     }
 
@@ -67,11 +61,8 @@ class APIController extends Controller
         {
             $items = Field::find($id);
         }
-        if ($language=="ar")
-            $pageTitle = "";
-        else
-            $pageTitle = "";
-        return $this->APIResponse($items, null,200 , $pageTitle);
+
+        return $this->APIResponse($items, null,200 );
 
     }
     public function employees($id=null)
@@ -83,11 +74,8 @@ class APIController extends Controller
         {
             $items = Employee::find($id);
         }
-        if ($language=="ar")
-            $pageTitle = "من نحن";
-        else
-            $pageTitle = "";
-        return $this->APIResponse($items, null,200 , $pageTitle);
+       
+        return $this->APIResponse($items, null,200 );
 
     }
     public function client_reviews($id=null)
@@ -99,11 +87,8 @@ class APIController extends Controller
         {
             $items = ClientReview::find($id);
         }
-        if ($language=="ar")
-            $pageTitle = "";
-        else
-            $pageTitle = "";
-        return $this->APIResponse($items, null,200 , $pageTitle);
+       
+        return $this->APIResponse($items, null,200 );
 
     }
     public function media($id=null)
@@ -111,11 +96,8 @@ class APIController extends Controller
         $items = Media::where('type', request("type"))->orderBy('item_order')->get();
         if(request('limit'))
             $items = $items->take(request('limit'));
-        if ($language=="ar")
-            $pageTitle = "";
-        else
-            $pageTitle = "";
-        return $this->APIResponse($items, null,200 , $pageTitle);
+       
+        return $this->APIResponse($items, null,200 );
 
     }
     public function jobs($id=null)
@@ -127,11 +109,8 @@ class APIController extends Controller
         {
             $items = Job::find($id);
         }
-        if ($language=="ar")
-            $pageTitle = "";
-        else
-            $pageTitle = "";
-        return $this->APIResponse($items, null,200 , $pageTitle);
+       
+        return $this->APIResponse($items, null,200 );
     }
     public function contacts(Request $request)  
     {
