@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <!--Logo text start-->
         <div class="header-logo">
-            <a href="http://z-edy.com" title="">
+            <a href="http://z-edy.com" target="_blank" title="">
                 <h1>{{$configration->ar_title}}</h1>
             </a>
         </div>
