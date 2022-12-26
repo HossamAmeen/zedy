@@ -25,7 +25,19 @@
   </div>
 </div>
 
+@php $input = "field_id"; @endphp
+<div class="form-group">
+    <label class="col-lg-2 control-label"> المجال</label>
+    <div class="col-lg-10">
+        <select name="{{ $input }}" class="form-control">
+          @foreach($fields as $field)
+          <option value="{{$field->id}}" @if(isset($row) && $row->field_id == $field->id) selected @endif
+            >{{$field->name}}</option>
+          @endforeach
 
+        </select>
+    </div>
+</div>
 @php $input = "image"; @endphp
 <div class="form-group">
   <label class="col-md-2 control-label">الصورة</label>

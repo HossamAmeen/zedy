@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\BackEnd;
 use App\Models\Client;
+use App\Models\Field;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
@@ -39,5 +40,10 @@ class ClientController extends BackEndController
         $row->update($requestArray);
         session()->flash('action', 'تم التحديث بنجاح');
         return redirect()->route($this->getClassNameFromModel().'.index');
+    }
+    public function append($row)
+    {
+        $data['fields'] = Field::get();
+        return $data;
     }
 }

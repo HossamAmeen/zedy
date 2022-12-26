@@ -40,4 +40,6 @@ class FieldController extends BackEndController
         session()->flash('action', 'تم التحديث بنجاح');
         return redirect()->route($this->getClassNameFromModel().'.index');
     }
+
+
 }

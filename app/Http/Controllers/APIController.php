@@ -17,7 +17,11 @@ class APIController extends Controller
         $item->{"team_count"} = Employee::get()->count();
         $item->{"videos_count"} = Media::where('type', 'video')->get()->count();
         $item->{"fields_count"} = Field::get()->count();
-        return $this->APIResponse($item, null, 200);
+        if ($language=="ar")
+            $pageTitle = "الرئيسية";
+        else
+            $pageTitle = "";
+        return $this->APIResponse($item, null,200 , $pageTitle);
     }
     public function services($id=null, Request $request)
     {
@@ -28,10 +32,12 @@ class APIController extends Controller
         {
             $items = Service::find($id);
         }
-        
-        // $header = request()->header('Accept-language');
-        // return $header;
-        return $this->APIResponse($items, null, 200 , "test");
+        $language = request()->header('Accept-language');
+        if ($language=="ar")
+            $pageTitle = "الخدمات";
+        else
+            $pageTitle = "";
+        return $this->APIResponse($items, null, 200 , $pageTitle);
 
     }
 
@@ -44,8 +50,11 @@ class APIController extends Controller
         {
             $items = Client::find($id);
         }
-        
-        return $this->APIResponse($items, null, 200);
+        if ($language=="ar")
+            $pageTitle = "عملاؤنا";
+        else
+            $pageTitle = "";
+        return $this->APIResponse($items, null,200 , $pageTitle);
 
     }
 
@@ -58,8 +67,11 @@ class APIController extends Controller
         {
             $items = Field::find($id);
         }
-        
-        return $this->APIResponse($items, null, 200);
+        if ($language=="ar")
+            $pageTitle = "";
+        else
+            $pageTitle = "";
+        return $this->APIResponse($items, null,200 , $pageTitle);
 
     }
     public function employees($id=null)
@@ -71,8 +83,11 @@ class APIController extends Controller
         {
             $items = Employee::find($id);
         }
-        
-        return $this->APIResponse($items, null, 200);
+        if ($language=="ar")
+            $pageTitle = "من نحن";
+        else
+            $pageTitle = "";
+        return $this->APIResponse($items, null,200 , $pageTitle);
 
     }
     public function client_reviews($id=null)
@@ -84,8 +99,11 @@ class APIController extends Controller
         {
             $items = ClientReview::find($id);
         }
-        
-        return $this->APIResponse($items, null, 200);
+        if ($language=="ar")
+            $pageTitle = "";
+        else
+            $pageTitle = "";
+        return $this->APIResponse($items, null,200 , $pageTitle);
 
     }
     public function media($id=null)
@@ -93,7 +111,11 @@ class APIController extends Controller
         $items = Media::where('type', request("type"))->orderBy('item_order')->get();
         if(request('limit'))
             $items = $items->take(request('limit'));
-        return $this->APIResponse($items, null, 200);
+        if ($language=="ar")
+            $pageTitle = "";
+        else
+            $pageTitle = "";
+        return $this->APIResponse($items, null,200 , $pageTitle);
 
     }
     public function jobs($id=null)
@@ -105,8 +127,11 @@ class APIController extends Controller
         {
             $items = Job::find($id);
         }
-        
-        return $this->APIResponse($items, null, 200);
+        if ($language=="ar")
+            $pageTitle = "";
+        else
+            $pageTitle = "";
+        return $this->APIResponse($items, null,200 , $pageTitle);
     }
     public function contacts(Request $request)  
     {
