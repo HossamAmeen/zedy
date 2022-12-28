@@ -12,6 +12,9 @@ class Client extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+    public function field(){
+        return $this->belongsTo(Field::class);
+    }
     public function getImageAttribute($value)
     {
         return asset($value);

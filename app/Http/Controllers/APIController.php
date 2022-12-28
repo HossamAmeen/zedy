@@ -40,7 +40,7 @@ class APIController extends Controller
 
     public function clients($id=null)
     {
-        $items = Client::orderBy('item_order')->get();
+        $items = Client::with('field')->orderBy('item_order')->get();
         if(request('limit'))
             $items = $items->take(request('limit'));
         if(isset($id))

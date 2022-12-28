@@ -16,10 +16,15 @@ class ClientController extends BackEndController
        
         $requestArray = $request->all();
         if($request->hasFile('image'))
-        { 
+        {   
+            //  return (intval($_FILES['image']['size']));
+            if(intval($_FILES['image']['size']) > 50000000)
+            {
+                return redirect()->back()->withErrors([ 'لقد تجاوزت الحد الأقصى للصورة']);
+            }
             $fileName = $this->uploadImage( $request , 530 , 432 );
-          if(isset($requestArray['image']) )
-          $requestArray['image'] =  $fileName;
+            if(isset($requestArray['image']) )
+                $requestArray['image'] =  $fileName;
         }
         $requestArray['user_id'] = Auth::user()->id;
         $this->model->create($requestArray);

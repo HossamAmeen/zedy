@@ -25,6 +25,7 @@
                             <tr>
                             <th>#</th>
                                 <th>اسم الفديو</th>
+                                <th>اسم الفديو بالانجليزية</th>
                                 <th>الفديو</th>
                                 <th>المستخدم</th>
                                 <th></th>
@@ -34,8 +35,8 @@
                             @foreach ($rows as $item)
                                  <tr>
                                     <td> {{$row_num++}}</td>
-                                    <td>{{$item->name}}</td>
-                                   
+                                    <td>{{$item->ar_name}}</td>
+                                    <td>{{$item->name}}</td>                                   
                                     <td>
                                         <iframe width="560" height="315"
                                              src="https://www.youtube.com/embed/{{$item->path}}">

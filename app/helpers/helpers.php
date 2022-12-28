@@ -34,10 +34,10 @@ class FileHelper  {
 
         $size = getimagesize($_FILES[$inputName]['tmp_name']);
 
-        if(intval($_FILES[$inputName]['size']) > 50000000)
-            {
-                return Redirect::back()->withErrors([ 'لقد تجاوزت الحد الأقصى للصورة']);
-            }
+        // if(intval($_FILES[$inputName]['size']) > 50000000)
+        //     {
+        //         return Redirect::back()->withErrors([ 'لقد تجاوزت الحد الأقصى للصورة']);
+        //     }
 
 
             $actualWidth = $size[0];
