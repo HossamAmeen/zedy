@@ -71,8 +71,6 @@ $factory->define(App\Models\Client::class, function (Faker $faker) {
     return [
         'name'=> $faker->name ,
         'ar_name' => $faker->name . "عربي",
-        'description' => substr($faker->text, 0, 30),
-        'ar_description' =>  substr($faker->text."عربي", 0, 30),
         "item_order" => 1,
         "user_id" => 1
     ];

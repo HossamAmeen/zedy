@@ -66,7 +66,7 @@
   </div>
 </div>
 
-@php $input = "ar_description"; @endphp
+{{-- @php $input = "ar_description"; @endphp
 <div class="form-group">
   <label class="col-lg-2 control-label">الوصف</label>
   <div class="col-lg-10">
@@ -91,7 +91,7 @@
     </div>
     @enderror
   </div>
-</div>
+</div> --}}
 
 {{-- <label class="col-md-2 control-label">الوصف بالعربي</label>
 @php $input = "ar_description"; @endphp
