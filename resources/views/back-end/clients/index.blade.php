@@ -25,7 +25,7 @@
                             <tr>
                             <th>#</th>
                             <th>الاسم</th>
-                            <th>الوصف</th>
+                            <th>مجال العمل</th>
                             <th>الصورة</th>
                             <th>المستخدم</th>
                             <th></th>
@@ -36,7 +36,7 @@
                                  <tr>
                                     <td> {{$item->item_order}}</td>
                                     <td>{{$item->ar_name}}</td>
-                                    <td width="30%">{!!$item->ar_description!!}</td>
+                                    <td width="30%">{{ isset($item->field) ? $item->field->ar_name : ''}}</td>
                                     <td>  <img src="{{asset($item->image)}}" height="60px" width="60px"></td>
                                     <td>{{ isset($item->user) ? $item->user->user_name : '' }}</td>
                                     <td>
