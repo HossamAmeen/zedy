@@ -32,7 +32,7 @@
         <select name="{{ $input }}" class="form-control">
           @foreach($fields as $field)
           <option value="{{$field->id}}" @if(isset($row) && $row->field_id == $field->id) selected @endif
-            >{{$field->name}}</option>
+            >{{$field->ar_name}}</option>
           @endforeach
 
         </select>
