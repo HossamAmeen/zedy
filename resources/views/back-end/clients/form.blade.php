@@ -27,7 +27,7 @@
 
 @php $input = "field_id"; @endphp
 <div class="form-group">
-    <label class="col-lg-2 control-label"> المجال</label>
+    <label class="col-lg-2 control-label"> مجال العمل</label>
     <div class="col-lg-10">
         <select name="{{ $input }}" class="form-control">
           @foreach($fields as $field)
