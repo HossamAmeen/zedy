@@ -31,7 +31,7 @@ class ClientReviewController extends BackEndController
           $requestArray['image'] =  $fileName;
         }
         $requestArray['user_id'] = Auth::user()->id;
-        $this->model->create($requestArray);
+        $item = $this->model->create($requestArray);
         session()->flash('action', 'تم الاضافه بنجاح');
         return redirect()->route($this->getClassNameFromModel().'.index');
     }

@@ -56,7 +56,7 @@
   <label class="col-lg-2 control-label">ترتيب </label>
   <div class="col-lg-10">
     <input type="number" name="{{ $input }}" value="{{$row->$input ?? ''}}"
-      class="form-control" required>
+      class="form-control">
     @error($input)
     <div class="alert alert-danger" role="alert" style="text-align: center">
       <strong>{{ $message }}</strong>

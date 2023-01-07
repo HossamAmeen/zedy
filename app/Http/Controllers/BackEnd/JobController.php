@@ -22,7 +22,7 @@ class JobController extends BackEndController
         }
         $requestArray['user_id'] = Auth::user()->id;
         $requestArray['type'] = join(",",$request->type);
-        $this->model->create($requestArray);
+        $item = $this->model->create($requestArray);
         session()->flash('action', 'تم الاضافه بنجاح');
         return redirect()->route($this->getClassNameFromModel().'.index');
     }

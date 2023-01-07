@@ -15,7 +15,7 @@ class BackEndController extends Controller
 
     protected $model;
     protected $limitItem;
-    public function __construct(Model $model ,$order_column="id",$order_directio='DESC', $limitItem = 0)
+    public function __construct(Model $model ,$order_column="item_order", $order_directio='DESC', $limitItem = 0)
     {
         $this->model = $model;
         $this->limitItem = $limitItem ;

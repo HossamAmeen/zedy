@@ -28,7 +28,7 @@ class UserController extends BackEndController
         }
         $requestArray['user_id'] = Auth::user()->id;
        
-        $this->model->create($requestArray);
+        $item = $this->model->create($requestArray);
         session()->flash('action', 'تم الاضافه بنجاح');
 
         $data=[
