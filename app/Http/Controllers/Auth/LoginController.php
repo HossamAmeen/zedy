@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Lang;
-
+use Cookie;
+use Auth;
 class LoginController extends Controller
 {
     /*
@@ -42,6 +43,31 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
         $this->username = $this->findUsername();
     }
+    public function login(Request $request)
+    {
+        $request->validate([
+            'login' => 'required',
+            'password' => 'required',
+        ]);
+        $login = request()->input('login');
+ 
+        $fieldType = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'user_name';
+
+        $credentials = $request->only($fieldType, 'password');
+        if($request->remember_me){
+            Cookie::queue('user_name', $request->login,  1440);
+            Cookie::queue('password',  $request->password,  1440);
+        }
+        else{
+            Cookie::queue('user_name', $request->login, -1);
+            Cookie::queue('password',  $request->password, -1);
+        
+        }
+        if (Auth::attempt($credentials)) {
+            return redirect($this->redirectTo);
+        }
+        return redirect("login")->withSuccess('Oppes! You have entered invalid credentials');
+    }
     public function findUsername()
     {
         $login = request()->input('login');
@@ -49,7 +75,7 @@ class LoginController extends Controller
         $fieldType = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'user_name';
  
         request()->merge([$fieldType => $login]);
- 
+        
         return $fieldType;
     }
     protected function sendFailedLoginResponse(Request $request)
@@ -84,8 +110,8 @@ class LoginController extends Controller
         return $this->username;
     }
     public function logout(Request $request)
-{
-    $this->performLogout($request);
-    return redirect()->route('login');
-}
+    {
+        $this->performLogout($request);
+        return redirect()->route('login');
+    }
 }

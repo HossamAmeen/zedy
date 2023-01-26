@@ -11,7 +11,7 @@
     Route::middleware('auth')->namespace('BackEnd')->group(function () {
 
         Route::get('/', 'ConfigrationController@index');
-        Route::get('profile', 'ConfigrationController@profile');
+        Route::get('profile', 'ConfigrationController@profile')->name('profile');
         Route::resource('configrations', 'ConfigrationController');
         Route::resource('users', 'UserController');      
         Route::resource('services', 'ServiceController');

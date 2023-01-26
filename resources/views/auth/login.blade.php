@@ -112,7 +112,8 @@
                                 <div class="input-group ls-group-input">
                                     <input id="email" type="text"
                                         class="form-control @error('login') is-invalid @enderror" name="login"
-                                        value="{{ old('login') }}" required autocomplete="login" autofocus>
+                                        required autocomplete="login" autofocus
+                                        @if(Cookie::has('user_name')) value="{{Cookie::get('user_name')}}" @endif>
 
                                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
@@ -129,18 +130,20 @@
 
                                     <input id="password" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
-                                        required autocomplete="current-password">
+                                        required autocomplete="current-password"
+                                        @if(Cookie::has('password')) value="{{Cookie::get('password')}}" @endif>
                                     <span class="input-group-addon"><i class="fa fa-lock"></i></span>
 
                                 </div>
 
                                 <div class="remember-me">
-                                    {{-- <input class="switchCheckBox" type="checkbox" checked data-size="mini"
-                                         name="remember" id="remember"
-                                       data-on-text="<i class='fa fa-check'><i>"
-                                        data-off-text="<i class='fa fa-times'><i>" {{ old('remember') ? 'checked' : '' }}>
+                                    <input class="switchCheckBox" type="checkbox" data-size="mini"
+                                        name="remember_me" id="remember"
+                                        data-on-text="<i class='fa fa-check'><i>"
+                                        data-off-text="<i class='fa fa-times'><i>"
+                                        @if(Cookie::has('user_name')) {{"checked"}} @endif>
 
-                                    <span>Remember me</span> --}}
+                                    <span>Remember me</span>
                                 </div>
                                 <div class="input-group ls-group-input login-btn-box">
                                     <button class="btn ls-dark-btn ladda-button col-md-12 col-sm-12 col-xs-12"
