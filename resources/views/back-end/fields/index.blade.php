@@ -24,6 +24,7 @@
                         <thead>
                             <tr>
                             <th>#</th>
+                            <th>الترتيب</th>
                             <th>الاسم</th>
                             <th>الصورة</th>
                             <th>المستخدم</th>
@@ -31,17 +32,19 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @php $counter = 1 @endphp
                             @foreach ($rows as $item)
                                  <tr>
-                                    <td> {{$item->item_order}}</td>
+                                    <td> {{$counter}}</td>
+                                    <td>{{$item->item_order}}</td>
                                     <td>{{$item->ar_name}}</td>
-                                   
                                     <td>  <img src="{{asset($item->image)}}" height="60px" width="60px" alt="{{asset($item->image)}}" style="background-color: #DBF9FC;"></td>
                                     <td>{{ isset($item->user) ? $item->user->user_name : '' }}</td>
                                     <td>
                                      @include('back-end.shared.buttons.delete')
                                     </td>
                                 </tr>
+                            @php $counter++ @endphp
                             @endforeach
                         </tbody>
                     </table>

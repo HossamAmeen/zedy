@@ -126,7 +126,7 @@ return [
 
     'cookie' => env(
         'SESSION_COOKIE',
-        Str::slug('elnada', '_').'_session'
+        Str::slug('zedy', '_').'_session'
     ),
 
     /*

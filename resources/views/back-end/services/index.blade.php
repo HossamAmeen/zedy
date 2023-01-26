@@ -24,6 +24,7 @@
                         <thead>
                             <tr>
                             <th>#</th>
+                            <th>الترتيب</th>
                             <th>الاسم</th>
                             <th>الاسم بالانجليزية</th>
                             <th>الوصف</th>
@@ -34,8 +35,10 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @php $counter = 1 @endphp
                             @foreach ($rows as $item)
                                  <tr>
+                                    <td> {{$counter}}</td>
                                     <td> {{$item->item_order}}</td>
                                     <td>{{$item->ar_name}}</td>
                                     <td>{{$item->name}}</td>
@@ -47,6 +50,7 @@
                                      @include('back-end.shared.buttons.delete')
                                     </td>
                                 </tr>
+                                @php $counter++ @endphp
                             @endforeach
                         </tbody>
                     </table>
