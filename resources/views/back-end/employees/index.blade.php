@@ -1,5 +1,5 @@
 @extends('back-end.layout.app')
- @php $row_num = 1;   $pageTitle = "عرض افراد الفريق" @endphp  
+ @php $row_num = 1;   $pageTitle = "عرض الموظفين" @endphp  
 @section('title')
    {{"لوحة التحكم - " . $pageTitle }}
 @endsection

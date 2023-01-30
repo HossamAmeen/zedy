@@ -9,7 +9,7 @@ class EmployeeController extends BackEndController
 {
     public function __construct(Employee $model)
     {
-        parent::__construct($model);
+        parent::__construct($model, 'item_order', 'asc');
     }
     public function store(Request $request){
        
