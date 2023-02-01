@@ -87,6 +87,7 @@ class ConfigrationController extends BackEndController
 
     public function profile()
     {
+        
         return redirect()->route("users.edit", ['id' => Auth::user()->id]);
     }
 }

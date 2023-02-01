@@ -54,16 +54,18 @@ class LoginController extends Controller
         $fieldType = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'user_name';
 
         $credentials = $request->only($fieldType, 'password');
+        $remember_me = false;
         if($request->remember_me){
             Cookie::queue('user_name', $request->login,  1440);
             Cookie::queue('password',  $request->password,  1440);
+            $remember_me = true;
         }
         else{
             Cookie::queue('user_name', $request->login, -1);
             Cookie::queue('password',  $request->password, -1);
-        
+            $remember_me = false;
         }
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials, $remember_me )) {
             return redirect($this->redirectTo);
         }
         return redirect("login")->withSuccess('Oppes! You have entered invalid credentials');
