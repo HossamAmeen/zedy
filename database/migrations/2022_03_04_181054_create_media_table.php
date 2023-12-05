@@ -20,11 +20,13 @@ class CreateMediaTable extends Migration
             $table->string('path');
             $table->text("name")->nullable();
             $table->text("ar_name")->nullable();
+            $table->text("description")->nullable();
+            $table->text("ar_description")->nullable();
             $table->bigInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->softDeletes();
             $table->timestamps();
-           
+
         });
     }
 

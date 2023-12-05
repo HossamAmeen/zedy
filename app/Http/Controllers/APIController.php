@@ -17,7 +17,7 @@ class APIController extends Controller
         $item->{"team_count"} = Employee::get()->count();
         $item->{"videos_count"} = Media::where('type', 'video')->get()->count();
         $item->{"fields_count"} = Field::get()->count();
-        
+
         return $this->APIResponse($item, null,200 );
     }
     public function services($id=null, Request $request)
@@ -74,7 +74,7 @@ class APIController extends Controller
         {
             $items = Employee::find($id);
         }
-       
+
         return $this->APIResponse($items, null,200 );
 
     }
@@ -87,7 +87,7 @@ class APIController extends Controller
         {
             $items = ClientReview::find($id);
         }
-       
+
         return $this->APIResponse($items, null,200 );
 
     }
@@ -96,9 +96,13 @@ class APIController extends Controller
         $items = Media::where('type', request("type"))->orderBy('item_order')->get();
         if(request('limit'))
             $items = $items->take(request('limit'));
-       
-        return $this->APIResponse($items, null,200 );
-
+        if(isset($id))
+            {
+                $items['item'] = Media::find($id);
+                $items['items'] = Media::where('type', $items['item']['type'])->where('id', '!=', $id
+                    )->orderBy('item_order')->take(3);
+            }
+        return $this->APIResponse($items, null, 200);
     }
     public function jobs($id=null)
     {
@@ -109,12 +113,12 @@ class APIController extends Controller
         {
             $items = Job::find($id);
         }
-       
+
         return $this->APIResponse($items, null,200 );
     }
-    public function contacts(Request $request)  
+    public function contacts(Request $request)
     {
-        
+
             $rules = $this->contactFormValidation();
             $message = $this->contactMessageValidation();
             $this->validate($request, $rules, $message);
@@ -131,7 +135,7 @@ class APIController extends Controller
                 $message->to("info@tibaroyal.com");
                 $message->subject($data['subject']);
             });
-     
+
 
     }
 
