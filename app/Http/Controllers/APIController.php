@@ -98,9 +98,9 @@ class APIController extends Controller
             $items = $items->take(request('limit'));
         if(isset($id))
             {
-                $items['item'] = Media::find($id);
-                $items['items'] = Media::where('type', $items['item']['type'])->where('id', '!=', $id
-                    )->orderBy('item_order')->take(3);
+                $data['item'] = Media::find($id);
+                $data['items'] = Media::where('type', $data['item']->type)->where('id', '!=', $id)->orderBy('item_order')->get()->take(3);
+                return $this->APIResponse($data, null, 200);
             }
         return $this->APIResponse($items, null, 200);
     }
