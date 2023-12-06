@@ -9,7 +9,7 @@ class Media extends Model
 {
     use SoftDeletes;
     protected $fillable = [
-       'item_order','type', 'path' ,'name','ar_name', "user_id"
+       'item_order','type', 'path' ,'name','ar_name',"description","ar_description", "user_id"
     ];
     public function user(){
         return $this->belongsTo(User::class);
