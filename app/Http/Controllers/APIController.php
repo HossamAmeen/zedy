@@ -93,15 +93,16 @@ class APIController extends Controller
     }
     public function media($id=null)
     {
-        $items = Media::where('type', request("type"))->orderBy('item_order')->get();
-        if(request('limit'))
-            $items = $items->take(request('limit'));
+       
         if(isset($id))
             {
                 $data['item'] = Media::find($id);
                 $data['items'] = Media::where('type', $data['item']->type)->where('id', '!=', $id)->orderBy('item_order')->get()->take(3);
                 return $this->APIResponse($data, null, 200);
             }
+        $items = Media::where('type', request("type"))->orderBy('item_order')->paginate(request('limit') ?? 20);
+        return $this->APIResponsePagination($items, null, 200);
+        
         return $this->APIResponse($items, null, 200);
     }
     public function jobs($id=null)
