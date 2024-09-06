@@ -170,7 +170,7 @@ class HomeController extends Controller
     }
     public function media()
     {
-        $media = Media::get()->where('type','videos')->take(10);
+        $media = Media::get()->where('type','videos')->orderby("id", "DESC")->take(10);
         if( $this->lang  == "en" ){
             $pageTitle  = "media";
         }
