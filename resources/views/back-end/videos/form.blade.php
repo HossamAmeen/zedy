@@ -42,3 +42,29 @@
  </div>    
  <input type="text" name="type"  hidden value="videos">    
 
+ <label class="col-md-2 control-label">الوصف بالعربي</label>
+ @php $input = "ar_description"; @endphp
+ <div class="panel-body no-padding" >
+            <textarea class="summernote"style="margin-right: 25%"  name="{{ $input }}"  id="demo"  rows="10" cols="100" required>
+                     {{ isset($row) ? $row->{$input} : '' }}</textarea>
+ </div><br>
+ @error($input)
+ <div class="alert alert-danger" role="alert" style="text-align: center">
+   <strong>{{ $message }}</strong>
+ </div>
+ @enderror
+ 
+ <label class="col-md-2 control-label">الوصف بالانجلزي</label>
+ @php $input = "description"; @endphp
+ <div class="panel-body no-padding" >
+  <textarea class="summernote" style="margin-right: 25%"  name="{{ $input }}"  
+   id="demo"  rows="10" cols="100" >
+   {{ isset($row) ? $row->{$input} : '' }}
+ </textarea>
+ </div><br>
+ @error($input)
+ <div class="alert alert-danger" role="alert" style="text-align: center">
+   <strong>{{ $message }}</strong>
+ </div>
+ @enderror
+ 
