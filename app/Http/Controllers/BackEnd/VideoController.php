@@ -25,10 +25,10 @@ class VideoController extends BackEndController
             $item = $this->model->create($requestArray);
             session()->flash('action', 'تم الاضافه بنجاح');
             if($request->item_order == null)
-        {
-            $item->item_order = $item->id + 2;
-            $item->save();
-        }
+            {
+                $item->item_order = $item->id;
+                $item->save();
+            }
             return redirect()->route($this->getClassNameFromModel().'.index');
         }
     

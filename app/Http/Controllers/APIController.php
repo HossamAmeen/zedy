@@ -80,7 +80,7 @@ class APIController extends Controller
     }
     public function client_reviews($id=null)
     {
-        $items = ClientReview::with('field:id,name,ar_name')->orderBy('item_order')->get();;
+        $items = ClientReview::with('field:id,name,ar_name')->orderBy('item_order')->get();
         if(request('limit'))
             $items = $items->take(request('limit'));
         if(isset($id))
@@ -100,7 +100,7 @@ class APIController extends Controller
                 $data['items'] = Media::where('type', $data['item']->type)->where('id', '!=', $id)->orderBy('item_order')->get()->take(3);
                 return $this->APIResponse($data, null, 200);
             }
-        $items = Media::where('type', request("type"))->orderBy('item_order')->paginate(request('limit') ?? 20);
+        $items = Media::where('type', request("type"))->orderBy('item_order', 'DESC')->paginate(request('limit') ?? 20);
         return $this->APIResponsePagination($items, null, 200);
         
         return $this->APIResponse($items, null, 200);
