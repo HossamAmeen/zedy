@@ -17,7 +17,7 @@ class APIController extends Controller
         $item->{"team_count"} = Employee::get()->count();
         $item->{"videos_count"} = Media::where('type', 'video')->get()->count();
         $item->{"fields_count"} = Field::get()->count();
-        
+
         return $this->APIResponse($item, null,200 );
     }
     public function services($id=null, Request $request)
@@ -74,31 +74,36 @@ class APIController extends Controller
         {
             $items = Employee::find($id);
         }
-       
+
         return $this->APIResponse($items, null,200 );
 
     }
     public function client_reviews($id=null)
     {
-        $items = ClientReview::with('field:id,name,ar_name')->orderBy('item_order')->get();;
+        $items = ClientReview::with('field:id,name,ar_name')->orderBy('item_order')->get();
         if(request('limit'))
             $items = $items->take(request('limit'));
         if(isset($id))
         {
             $items = ClientReview::find($id);
         }
-       
+
         return $this->APIResponse($items, null,200 );
 
     }
     public function media($id=null)
     {
-        $items = Media::where('type', request("type"))->orderBy('item_order')->get();
-        if(request('limit'))
-            $items = $items->take(request('limit'));
        
-        return $this->APIResponse($items, null,200 );
-
+        if(isset($id))
+            {
+                $data['item'] = Media::find($id);
+                $data['items'] = Media::where('type', $data['item']->type)->where('id', '!=', $id)->orderBy('item_order')->get()->take(3);
+                return $this->APIResponse($data, null, 200);
+            }
+        $items = Media::where('type', request("type"))->orderBy('item_order', 'DESC')->paginate(request('limit') ?? 20);
+        return $this->APIResponsePagination($items, null, 200);
+        
+        return $this->APIResponse($items, null, 200);
     }
     public function jobs($id=null)
     {
@@ -109,12 +114,12 @@ class APIController extends Controller
         {
             $items = Job::find($id);
         }
-       
+
         return $this->APIResponse($items, null,200 );
     }
-    public function contacts(Request $request)  
+    public function contacts(Request $request)
     {
-        
+
             $rules = $this->contactFormValidation();
             $message = $this->contactMessageValidation();
             $this->validate($request, $rules, $message);
@@ -131,7 +136,7 @@ class APIController extends Controller
                 $message->to("info@tibaroyal.com");
                 $message->subject($data['subject']);
             });
-     
+
 
     }
 
