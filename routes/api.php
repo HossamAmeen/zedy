@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\APIController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,13 +19,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::middleware('cors')->group(function () {
-    Route::get('configrations', 'APIController@configrations');
-    Route::get('services/{id?}', 'APIController@services');
-    Route::get('clients/{id?}', 'APIController@clients');
-    Route::get('fields/{id?}', 'APIController@fields');
-    Route::get('employees/{id?}', 'APIController@employees');
-    Route::get('client-reviews/{id?}', 'APIController@client_reviews');
-    Route::get('videos/{id?}', 'APIController@media');
-    Route::get('jobs/{id?}', 'APIController@jobs');
-    Route::get('sliders', 'APIController@media');
+    Route::get('configrations', [APIController::class, 'configrations']);
+    Route::get('services/{id?}', [APIController::class, 'services']);
+    Route::get('clients/{id?}', [APIController::class, 'clients']);
+    Route::get('fields/{id?}', [APIController::class, 'fields']);
+    Route::get('employees/{id?}', [APIController::class, 'employees']);
+    Route::get('client-reviews/{id?}', [APIController::class, 'client_reviews']);
+    Route::get('videos/{id?}', [APIController::class, 'media']);
+    Route::get('jobs/{id?}', [APIController::class, 'jobs']);
+    Route::get('sliders', [APIController::class, 'media']);
 });
