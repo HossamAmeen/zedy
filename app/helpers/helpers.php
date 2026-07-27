@@ -9,9 +9,9 @@
 // use Request;
 use App\Http\Controllers\Controller;
 // use Illuminate\Http\Request as Requests;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Redirect;
 use Intervention\Image\ImageManagerStatic as Image;
-use Illuminate\Support\Facades\Input as Input;
 
 
 function is_active(string $routeName)
@@ -61,11 +61,11 @@ class FileHelper  {
             //     mkdir(base_path()."/".$folderName."/".date("Y-m-d"), 0777, TRUE);
             // }
 
-            $image = Input::file($inputName);
+            $image = request()->file($inputName);
             // $fileName  = $pre . time() . '.' . $image->getClientOriginalExtension();
 
             // $path = base_path()."/".$folderName."/".date("Y-m-d") . '/' . $fileName;
-            $fileName = time() . str_random('10') . '.' . $image->getClientOriginalExtension();
+            $fileName = time() . Str::random(10) . '.' . $image->getClientOriginalExtension();
             $destinationPath = $folderName ;
             if (!is_dir($destinationPath)) {
                 mkdir($destinationPath);
@@ -81,19 +81,19 @@ class FileHelper  {
 
     //return file url
     public static function upload_file($inputName = 'file', $folderName = 'uploads') {
-        if (Request::hasFile($inputName)) {
+        if (request()->hasFile($inputName)) {
 
             $folderPath = base_path()."/".$folderName."/".date("Y-m-d");
             if (!is_dir($folderPath)) {
                 mkdir($folderPath, 0777, TRUE);
             }
 
-            $file = Input::file($inputName);
+            $file = request()->file($inputName);
             $fileName  = time() . '.' . $file->getClientOriginalExtension();
 
 
 
-            Input::file($inputName)->move($folderPath, $fileName);
+            request()->file($inputName)->move($folderPath, $fileName);
 
             return $folderName."/".date("Y-m-d") . '/' .$fileName;
         }
@@ -111,7 +111,7 @@ class FileHelper  {
         $defaultWidth = $width;
         $defaultHeight = $height;
         // getting all of the post data
-        $files = Input::file($inputName);
+        $files = request()->file($inputName);
         // Making counting of uploaded images
         $file_count = count($files);
         // start count how many uploaded

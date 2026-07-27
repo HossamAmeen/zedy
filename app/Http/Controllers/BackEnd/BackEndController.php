@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Carbon;
 use File;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 use Image;
 use FileHelper;
 
@@ -143,7 +144,7 @@ class BackEndController extends Controller
 
     protected function pluralModelName()
     {
-        return str_plural($this->getModelName());
+        return Str::plural($this->getModelName());
     }
 
     protected function getModelName()
